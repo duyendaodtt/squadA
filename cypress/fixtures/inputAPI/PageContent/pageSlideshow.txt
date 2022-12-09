@@ -1,90 +1,71 @@
 query {
-  page_slideshows {
-    meta {
-      pagination {
-        limit
-        page
-        total
-        totalPage
-      }
-    }
-    items {
-      title
-      uid
-      atAGlance {
-        shortGlanceVersions
-      }
-      body
-      bodyJson
-      contentFormat {
-        title
-      }
-      contentTypeUid
-      contributor {
-        contributorName
-        contributorImage {
-          image {
-            url
+        page_slideshows {
+          meta {
+            pagination {
+              limit
+              page
+              total
+              totalPage
+            }
           }
-          imageAltText
-        }
-      }
-      featuredImageGroup {
-        featuredImage {
-          url
-        }
-        featuredImageCaption
-        featuredImageCredit
-        imageAltText
-      }
-			
-      keywords {
-        contentTypeUid
-        title
-        url
-      }
-      locale
-      mobileHeadline
-      publishedDate
-      readTime
-      relatedEvents {
-        contentTypeUid
-        title
-      }
-      relatedInlineContent {
-        relatedItem {
-          __typename
-        }
-      }
-      seo {
-        canonicalUrl
-        metaDescription
-        metaTitle
-        noIndex
-      }
-			slideshow{
-        slideEmbed
-        slideImage{url}
-        slideImageAltText
-        slideImageCaption
-        slideImageCredit
-        slideImageDescription
-        slideImageDescriptionJson
-      }
-      summary
-      subbrand {
-        title
-        subbrandLogoGroup {
-          subbrandImage {
+          items {
+            title
             url
+            readTime
+            publishedDate
+            uid
+            body
+            bodyJson
+            contentFormat {
+              title
+              url
+            }
+            featuredImageGroup {
+              featuredImage {
+                url
+              }
+              featuredImageCaption
+              imageAltText
+              featuredImageCredit
+            }
+      
+            summary
+            contentTypeUid
+            createdAt
+            url
+            title
+            keywords {
+              title
+              url
+            }
+            subbrand {
+              title
+              url
+            }
+            publishedDate
+            contributor {
+              title
+              url
+            }
+      
+            seo {
+              metaDescription
+              metaTitle
+            }
+            mobileHeadline
+            slideshow {
+              slideImage {
+                url
+              }
+              slideImageAltText
+              slideImageCaption
+              slideImageCredit
+              slideImageDescription
+              slideTitle
+            }
+            oldUrl
+            createdAt
+            createdBy
           }
-          subbrandImageAltText
         }
       }
-      seriesTaxonomy {
-        title
-        url
-      }
-    }
-  }
-}

@@ -1,393 +1,108 @@
 query {
   page_content(
-    url: "/cotton-prices/10-ways-ffa-is-growing-tomorrow-s-ag-leaders"
+    url: "/parenttopic-secondary/at-t-cdo-harnessing-data-and-ai-to-enhance-business-value"
   ) {
     content {
       ... on Article {
         title
-        url
-        #uid
+        readTime
         publishedDate
-        summary
-        subbrand {
+        url
+        mobileHeadline
+        contentFormat {
           title
-          uid
+        }
+        contributor {
+          title
+          contributorImage {
+            image {
+              url
+            }
+          }
+        }
+        summary
+        atAGlance {
+          shortGlanceVersions
+        }
+        body
+        relatedInlineContent {
+          relatedItem {
+            __typename
+          }
+        }
+        featuredImageGroup {
+          featuredImage {
+            url
+          }
+          featuredImageCredit
+          featuredImageCaption
+        }
+
+        seriesTaxonomy {
+          __typename
+        }
+        keywords {
+          title
           url
+        }
+        subbrand {
+          __typename
           subbrandLogoGroup {
             subbrandImage {
               url
             }
             subbrandImageAltText
           }
+          locale
+          createdAt
+          updatedAt
         }
-        body
-        bodyJson
+        sponsorshipGatingGroup {
+          sponsorshipGatingSponsorFlag
+          sponsorshipGatingExternalFormId
+          sponsorshipGatingGateExternalFieldFlag
+          sponsorshipGatingGateRegFlag
+          sponsorshipGatingSponsorReference {
+            __typename
+          }
+        }
+        seo {
+          metaTitle
+          metaDescription
+          canonicalUrl
+          noIndex
+        }
         topicSelector {
           mainTopic {
-            __typename
             ... on TopicPrimary {
-              title
               url
             }
             ... on TopicSecondary {
-              title
               url
             }
             ... on TopicTertiary {
-              title
               url
             }
           }
-          additionalTopics {
-            __typename
-          }
         }
-        seriesTaxonomy {
-          title
-          url
-        }
-        keywords {
-          title
-          uid
-          contentTypeUid
-          url
-        }
-        featuredImageGroup {
-          featuredImage {
-            url
-          }
-          featuredImageCredit
-          featuredImageCaption
-        }
-        seo {
-          metaTitle
-          metaDescription
-          canonicalUrl
-          noIndex
-        }
+        
       }
-      ... on Webinar {
-        title
-        url
-        uid
-        publishedDate
-        summary
-        subbrand {
-          title
-          uid
-          url
-          subbrandLogoGroup {
-            subbrandImage {
-              url
-            }
-            subbrandImageAltText
-          }
-        }
-        body
-        bodyJson
-        topicSelector {
-          mainTopic {
-            __typename
-          }
-          additionalTopics {
-            __typename
-          }
-        }
-        seriesTaxonomy {
-          title
-          url
-        }
-        keywords {
-          title
-          uid
-          contentTypeUid
-          url
-        }
-        featuredImageGroup {
-          featuredImage {
-            url
-          }
-          featuredImageCredit
-          featuredImageCaption
-        }
-        seo {
-          metaTitle
-          metaDescription
-          canonicalUrl
-          noIndex
-        }
-        webinarGroup {
-          duration {
-            duration
-          }
-          webinarId
-          webinarUrl
-          webinarService
-          webinarTimezone
-          webinarStartDateAndTime
-        }
-      }
+
       ... on Document {
         title
-        url
-        uid
-        publishedDate
-        summary
-        subbrand {
-          title
-          uid
-          url
-          subbrandLogoGroup {
-            subbrandImage {
-              url
-            }
-            subbrandImageAltText
-          }
-        }
         body
-        bodyJson
-        topicSelector {
-          mainTopic {
-            ... on TopicPrimary {
-              title
-              url
-            }
-            ... on TopicSecondary {
-              title
-              url
-            }
-            ... on TopicTertiary {
-              title
-              url
-            }
-          }
-          additionalTopics {
-            __typename
-          }
-        }
-        seriesTaxonomy {
-          title
-          url
-        }
-        keywords {
-          title
-          uid
-          contentTypeUid
-          url
-        }
-        featuredImageGroup {
-          featuredImage {
-            url
-          }
-          featuredImageCredit
-          featuredImageCaption
-        }
-        seo {
-          metaTitle
-          metaDescription
-          canonicalUrl
-          noIndex
-        }
-        document {
-          materialTitle
-          materialUrl
-          materialResource {
-            url
-          }
-        }
       }
       ... on Podcast {
         title
-        url
-        uid
-        publishedDate
-        summary
-        subbrand {
-          title
-          uid
-          url
-          subbrandLogoGroup {
-            subbrandImage {
-              url
-            }
-            subbrandImageAltText
-          }
-        }
         body
-        bodyJson
-        #topic
-        seriesTaxonomy {
-          title
-          url
-        }
-        keywords {
-          title
-          uid
-          contentTypeUid
-          url
-        }
-        featuredImageGroup {
-          featuredImage {
-            url
-          }
-          featuredImageCredit
-          featuredImageCaption
-        }
-        seo {
-          metaTitle
-          metaDescription
-          canonicalUrl
-          noIndex
-        }
-        podcast {
-          podcastId
-          podcastLink
-          podcastService
-          duration {
-            duration
-          }
-        }
       }
-      ... on Slideshow {
+      ... on Webinar {
         title
-        url
-        uid
-        publishedDate
-        summary
-        subbrand {
-          title
-          uid
-          url
-          subbrandLogoGroup {
-            subbrandImage {
-              url
-            }
-            subbrandImageAltText
-          }
-        }
         body
-        bodyJson
-        topicSelector {
-          mainTopic {
-            ... on TopicPrimary {
-              title
-              url
-            }
-            ... on TopicSecondary {
-              title
-              url
-            }
-            ... on TopicTertiary {
-              title
-              url
-            }
-          }
-          additionalTopics {
-            __typename
-          }
-        }
-        seriesTaxonomy {
-          title
-          url
-        }
-        keywords {
-          title
-          uid
-          contentTypeUid
-          url
-        }
-        featuredImageGroup {
-          featuredImage {
-            url
-          }
-          featuredImageCredit
-          featuredImageCaption
-        }
-        seo {
-          metaTitle
-          metaDescription
-          canonicalUrl
-          noIndex
-        }
-        slideshow {
-          slideTitle
-          slideImage {
-            url
-          }
-          slideImageCredit
-          slideImageAltText
-          slideImageCaption
-          slideImageDescription
-        }
       }
       ... on Video {
         title
-        url
-        uid
-        publishedDate
-        summary
-        subbrand {
-          title
-          uid
-          url
-          subbrandLogoGroup {
-            subbrandImage {
-              url
-            }
-            subbrandImageAltText
-          }
-        }
         body
-        bodyJson
-        topicSelector {
-          mainTopic {
-            ... on TopicPrimary {
-              title
-              url
-            }
-            ... on TopicSecondary {
-              title
-              url
-            }
-            ... on TopicTertiary {
-              title
-              url
-            }
-          }
-          additionalTopics {
-            __typename
-          }
-        }
-        seriesTaxonomy {
-          title
-          url
-        }
-        keywords {
-          title
-          uid
-          contentTypeUid
-          url
-        }
-        featuredImageGroup {
-          featuredImage {
-            url
-          }
-          featuredImageCredit
-          featuredImageCaption
-        }
-        seo {
-          metaTitle
-          metaDescription
-          canonicalUrl
-          noIndex
-        }
-        video {
-          duration {
-            duration
-          }
-          videoUrl
-          videoCredit
-        }
       }
     }
   }

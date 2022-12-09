@@ -1,37 +1,68 @@
-# Write your query or mutation here
-query{
-  all_module_commodity_prices(
-    where:{
-      uid:"blt66e20eaaa783b8a2"
+query {
+  all_module_commodity_prices(where: { uidIn: ["blt66e20eaaa783b8a2"] }) {
+    __typename
+    meta {
+      total
+      __typename
     }
-  ){
-
-    entries{
-      meta{
-        total
-        entry{
-          title
-          uid
-          ctaButton{
+    entries {
+      __typename
+      meta {
+        __typename
+        entry {
+          __typename
+          commoditySymbols
+          contentTypeUid
+          copyrightInformation {
+            __typename
+            copyrightNotice
+            logoImage {
+              __typename
+              url
+            }
+            logoImageAltText
+          }
+          createdAt
+          createdBy
+          ctaButton {
+            __typename
             ctaButtonLink
             ctaButtonText
           }
-          commoditySymbols
-          copyrightInformation{
-            logoImageAltText
-            logoImage{url}
-            copyrightNotice
-          }
+          locale
+          title
+          uid
+          updatedAt
+          updatedBy
         }
       }
-      items{
-        name
-        open
-        change
-        low
+      items {
+        __typename
+        close
+        dayCode
+        dollarVolume
+        fiftyTwoWkHigh
+        fiftyTwoWkLow
+        flag
         high
-        last
-        lastTrade
+        lastPrice
+        low
+        mode
+        name
+        netChange
+        numTrades
+        oneMonthHigh
+        oneMonthLow
+        open
+        openInterest
+        percentChange
+        previousSettlement
+        previousVolume
+        serverTimestamp
+        symbol
+        tradeTimestamp
+        unitCode
+        volume
       }
     }
   }

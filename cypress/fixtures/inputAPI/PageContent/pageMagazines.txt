@@ -1,117 +1,62 @@
-query{
-  page_magazines(
-    limit:2
-    page:1
-  ){
-    meta{
-      pagination{
-        limit
-        page
-        total
-        totalPage
-      }
-    }
-    items{
-      title
-      publishedDate
-      atAGlance{shortGlanceVersions}
-      authoredBy
-      authoredOn
-      body
-      bodyJson
-      contentTypeUid
-      contributor{
-        contributorName
-        contributorImage{image{url}}
-        url
-      }
-      featuredImageGroup{
-        featuredImage{
-          url
-        }
-        featuredImageCaption
-        featuredImageCredit
-        imageAltText
-      }
-      keywords{
-        title
-        url
-      }
-      magazine{
-        magazineId
-        magazineImage{url}
-        magazineImageAltText
-        magazineListingTitle
-        magazineSource
-        magazineUrl
-      }
-      mobileHeadline
-      publishedDate
-      newsletterSignUpPromo{
-        message
-        newsletterId
-        title
-      }
-      oldUrl
-      readTime
-      relatedEvents{
-        title
-        uid
-      }
-      relatedInlineContent{
-        relatedItem{
-          title
-          url
-        }
-      }
-      seo{
-        canonicalUrl
-        metaDescription
-        metaTitle
-        noIndex
-      }
-      seriesTaxonomy{
-        title
-        uid
-      }
-      summary
-      summaryJson
-      subbrand{
-        title
-        url
-      }
-      topicSelector{
-        mainTopic{
-          __typename
-          ... on TopicPrimary{
-            title
-            url
+query {
+        page_magazines {
+          meta {
+            pagination {
+              limit
+              page
+              total
+              totalPage
+            }
           }
-          ... on TopicSecondary{
-            title
+          items {
+            uid
+            body
+            bodyJson
+      			readTime
+            featuredImageGroup {
+              featuredImage {
+                url
+              }
+              featuredImageCaption
+              imageAltText
+              featuredImageCredit
+            }
+      
+            summary
+            contentTypeUid
+            createdAt
             url
-          }
-          ... on TopicTertiary{
             title
-            url
-          }
-        }
-        additionalTopics{
-          __typename
-          ... on TopicPrimary{
-            title
-            url
-          }
-          ... on TopicSecondary{
-            title
-            url
-          }
-          ... on TopicTertiary{
-            title
-            url
+            keywords {
+              title
+              url
+            }
+            subbrand {
+              title
+              url
+            }
+            publishedDate
+            contributor {
+              title
+              url
+            }
+      
+            seo {
+              metaDescription
+              metaTitle
+            }
+            publishedDate
+            mobileHeadline
+            magazine {
+              magazineSource
+              magazineId
+              magazineListingTitle
+              magazineImage {
+                url
+              }
+              magazineImageAltText
+              magazineUrl
+            }
           }
         }
       }
-    }
-  }
-}

@@ -1,87 +1,68 @@
-query{
-  page_webinars{
-    meta{
-      pagination{
-        limit
-        page
-        total
-        totalPage
-      }
-    }
-    items{
-      title
-      uid
-      atAGlance{shortGlanceVersions}
-      body
-      bodyJson
-      contentFormat{title}
-      contentTypeUid
-      contributor{
-        contributorName
-        contributorImage{
-          image{url}
-          imageAltText
+query {
+        page_webinars {
+          meta {
+            pagination {
+              limit
+              page
+              total
+              totalPage
+            }
+          }
+          items {
+            title
+            readTime
+            publishedDate
+            summary
+            contentTypeUid
+            createdAt
+            url
+            title
+            keywords {
+              title
+              url
+            }
+            subbrand {
+              title
+              url
+            }
+            featuredImageGroup{
+              featuredImage{
+                url
+              }
+              featuredImageCaption
+              featuredImageCredit
+              imageAltText
+            }
+            webinarGroup {
+              webinarMaterialTitle
+              webinarMaterialUrl
+              duration {
+                duration
+              }
+              webinarStartDateAndTime
+              webinarUrl
+            }
+            contributor {
+              title
+              url
+            }
+            speaker {
+              contributorImage {
+                image {
+                  url
+                }
+                imageAltText
+              }
+              contributorName
+              title
+              url
+            }
+            seo {
+              metaDescription
+              metaTitle
+            }
+            publishedDate
+            mobileHeadline
+          }
         }
       }
-      featuredImageGroup{
-        featuredImage{url}
-        featuredImageCaption
-        featuredImageCredit
-        imageAltText
-      }
-      sponsorshipGatingGroup{
-        sponsorshipGatingCampaignUrl
-        sponsorshipGatingExternalFormId
-        sponsorshipGatingGateExternalFieldFlag
-        sponsorshipGatingGateRegFlag
-        sponsorshipGatingSponsorFlag
-        sponsorshipGatingSponsorReference{
-          body
-          title
-        }
-      }
-      keywords{
-        contentTypeUid
-        title
-        url
-      }
-      locale
-      mobileHeadline
-      publishedDate
-      readTime
-      relatedEvents{
-        contentTypeUid
-        title
-      }
-      relatedInlineContent{
-        relatedItem{
-          __typename
-        }
-      }
-      seo{
-        canonicalUrl
-        metaDescription
-        metaTitle
-        noIndex
-      }
-      speaker{
-        contentTypeUid
-        __typename
-        contributorName
-      }
-      summary
-      subbrand{
-        title
-        subbrandLogoGroup{
-          subbrandImage{url}
-          subbrandImageAltText
-        }
-      }
-      seriesTaxonomy{
-        title
-        url
-      }
-      }
-    
-  }
-}

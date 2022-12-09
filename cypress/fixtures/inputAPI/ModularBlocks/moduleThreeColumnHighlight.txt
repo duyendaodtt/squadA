@@ -1,297 +1,144 @@
 query {
-  all_module_three_column_highlight(
-    where: { uidIn: ["bltad2f53b8ba7a3e13", "blta2a605a950f192c1"] }
-  ) {
-    entries {
-      items {
-        column1 {
-          #__typename
-          ... on Article {
-            title
-            url
-            publishedDate
-            readTime
-            contributor{
-              contributorName
-              url
+        all_module_three_column_highlight(where: { uidIn: ["blt249b3295ff5b22bb"] }) {
+          entries {
+            meta {
+              entry {
+                adConfiguration{
+                  nativeAdOption
+                }
+                contentTypeUid
+                title
+                uid
+                adConfiguration {
+                  nativeAdOption
+                }
+                threeColumnSection1 {
+                  title
+                  ctaButton {
+                    ctaButtonLink
+                    ctaButtonText
+                  }
+                }
+                threeColumnSection2 {
+                  title
+                  ctaButton {
+                    ctaButtonLink
+                    ctaButtonText
+                  }
+                }
+                threeColumnSection3 {
+                  title
+                  ctaButton {
+                    ctaButtonLink
+                    ctaButtonText
+                  }
+                }
+              }
             }
-            featuredImageGroup{
-              featuredImage{ url}
-              featuredImageCredit
-            }
-            topicSelector{
-              mainTopic{
-                ... on TopicPrimary{
+            items {
+              column1 {
+                ... on Article {
                   title
                   url
                 }
-                ... on TopicSecondary{
+                ... on Podcast {
                   title
                   url
                 }
-                ... on TopicTertiary{
+                ... on Document {
+                  title
+                  url
+                }
+                ... on Podcast {
+                  title
+                  url
+                }
+                ... on Video {
+                  title
+                  url
+                }
+                ... on Magazine {
+                  title
+                  url
+                }
+                ... on Slideshow {
+                  title
+                  url
+                }
+                ... on Event {
+                  title
+                  url
+                }
+              }
+              column2 {
+                ... on Article {
+                  title
+                  url
+                }
+                ... on Podcast {
+                  title
+                  url
+                }
+                ... on Document {
+                  title
+                  url
+                }
+                ... on Podcast {
+                  title
+                  url
+                }
+                ... on Video {
+                  title
+                  url
+                }
+                ... on Magazine {
+                  title
+                  url
+                }
+                ... on Slideshow {
+                  title
+                  url
+                }
+                ... on Event {
+                  title
+                  url
+                }
+              }
+              column3 {
+                ... on Article {
+                  title
+                  url
+                }
+                ... on Podcast {
+                  title
+                  url
+                }
+                ... on Document {
+                  title
+                  url
+                }
+                ... on Podcast {
+                  title
+                  url
+                }
+                ... on Video {
+                  title
+                  url
+                }
+                ... on Magazine {
+                  title
+                  url
+                }
+                ... on Slideshow {
+                  title
+                  url
+                }
+                ... on Event {
                   title
                   url
                 }
               }
             }
-          }
-          ... on Document {
-            title
-            url
-            publishedDate
-            readTime
-            contributor{
-              contributorName
-              url
-            }
-            featuredImageGroup{
-              featuredImage{ url}
-              featuredImageCredit
-            }
-            topicSelector{
-              mainTopic{
-                ... on TopicPrimary{
-                  title
-                  url
-                }
-                ... on TopicSecondary{
-                  title
-                  url
-                }
-                ... on TopicTertiary{
-                  title
-                  url
-                }
-              }
-            }
-          }
-          ... on Event {
-            title
-            url
-            eventDetails{
-              eventUrl
-              endDate
-              startDate
-              buttons{
-                buttonLink
-                buttonName
-              }
-            }
-          }
-           ... on ExternalLink {
-            title
-            url
-            contributor{
-              contributorName
-              url
-            }
-            featuredImageGroup{
-              featuredImage{ url}
-              featuredImageCredit
-            }
-            topicSelector{
-              mainTopic{
-                ... on TopicPrimary{
-                  title
-                  url
-                }
-                ... on TopicSecondary{
-                  title
-                  url
-                }
-                ... on TopicTertiary{
-                  title
-                  url
-                }
-              }
-            }
-          }
-          ... on Magazine {
-            title
-          }
-           ... on Podcast {
-            title
-            url
-            publishedDate
-            readTime
-            contributor{
-              contributorName
-              url
-            }
-            featuredImageGroup{
-              featuredImage{ url}
-              featuredImageCredit
-            }
-            topicSelector{
-              mainTopic{
-                ... on TopicPrimary{
-                  title
-                  url
-                }
-                ... on TopicSecondary{
-                  title
-                  url
-                }
-                ... on TopicTertiary{
-                  title
-                  url
-                }
-              }
-            }
-          }
-           ... on Slideshow {
-            title
-            url
-            publishedDate
-            readTime
-            contributor{
-              contributorName
-              url
-            }
-            featuredImageGroup{
-              featuredImage{ url}
-              featuredImageCredit
-            }
-            topicSelector{
-              mainTopic{
-                ... on TopicPrimary{
-                  title
-                  url
-                }
-                ... on TopicSecondary{
-                  title
-                  url
-                }
-                ... on TopicTertiary{
-                  title
-                  url
-                }
-              }
-            }
-          }
-           ... on Video {
-            title
-            url
-            publishedDate
-            readTime
-            contributor{
-              contributorName
-              url
-            }
-            featuredImageGroup{
-              featuredImage{ url}
-              featuredImageCredit
-            }
-            topicSelector{
-              mainTopic{
-                ... on TopicPrimary{
-                  title
-                  url
-                }
-                ... on TopicSecondary{
-                  title
-                  url
-                }
-                ... on TopicTertiary{
-                  title
-                  url
-                }
-              }
-            }
-          }
-           ... on Webinar {
-            title
-            url
-            publishedDate
-            readTime
-            contributor{
-              contributorName
-              url
-            }
-            featuredImageGroup{
-              featuredImage{ url}
-              featuredImageCredit
-            }
-            topicSelector{
-              mainTopic{
-                ... on TopicPrimary{
-                  title
-                  url
-                }
-                ... on TopicSecondary{
-                  title
-                  url
-                }
-                ... on TopicTertiary{
-                  title
-                  url
-                }
-              }
-            }
-          }
-        }
-        column2 {
-          __typename
-          ... on Article {
-            title
-          }
-          ... on Document {
-            title
-          }
-          ... on Event {
-            title
-          }
-          ... on ExternalLink {
-            title
-          }
-          ... on Magazine {
-            title
-          }
-          ... on Podcast {
-            title
-          }
-          ... on Slideshow {
-            title
-          }
-          ... on Video {
-            title
-          }
-          ... on Webinar {
-            title
-          }
-        }
-        column3 {
-          __typename
-          ... on Article {
-            title
-          }
-          ... on Document {
-            title
-          }
-          ... on Event {
-            title
-          }
-          ... on ExternalLink {
-            title
-          }
-          ... on Magazine {
-            title
-          }
-          ... on Podcast {
-            title
-          }
-          ... on Slideshow {
-            title
-          }
-          ... on Video {
-            title
-          }
-          ... on Webinar {
-            title
           }
         }
       }
-    }
-  }
-}

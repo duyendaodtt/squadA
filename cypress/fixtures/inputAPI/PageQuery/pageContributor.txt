@@ -1,319 +1,122 @@
-query pageContributor {
-  page_contributor(
-    where: { url: "/author/industry-voice-by-unified-ag-solutions-uas" })
-  {
-    meta {
-      pagination {
-        total
-        totalPage
-        limit
-        page
-      }
-      entry {
-        title
-        contributorName
-        contributorRole
-        contributorSummary
-        contributorDescription
-        userRoles
-        contributorImage {
-          image {
-            url
-          }
-          imageAltText
-        }
-        seo {
-          metaTitle
-          metaDescription
-          canonicalUrl
-          noIndex
-        }
-      }
-    }
-    items{
-      __typename
-      ... on Article {
-        title
-        url
-        summary
-        publishedDate
-        body
-        featuredImageGroup{
-          imageAltText
-          featuredImage{url}
-        }
-        contributor{
-          contributorName
-          contributorImage{
-            image{url}
-          }
-        }
-				topicSelector{
-          mainTopic{
-            ... on TopicPrimary{
+query {
+        page_contributor(where: { url: "/author/industry-voice-by-wintersteiger" }) {
+          meta {
+            entry {
               title
               url
-            }
-            ... on TopicSecondary{
-              title
-              url
-            }
-            ... on TopicTertiary{
-              title
-              url
+              contentTypeUid
+              contributorCompanyName
+              contributorDescription
+              contributorDescriptionJson
+              contributorEmail{
+                emailAddress
+                hideEmail
+              }
+              contributorImage{
+                image{url}
+                imageAltText
+              }
+              contributorName
+              contributorRole
+              contributorSummary
+              country{
+                title
+              }
+              createdAt
+              createdBy
+              socialLinks{
+                facebookLink{href}
+                instagramLink{href}
+                linkedinLink{href}
+                twitterLink{href}
+              }
+              seo{
+                canonicalUrl
+                metaDescription
+                metaTitle
+                noIndex
+              }
             }
           }
-          additionalTopics{
-            ... on TopicPrimary{
+          items {
+            ... on Article {
               title
               url
+              readTime
+              summary
+              topicSelector{
+                mainTopic{
+                  ... on TopicPrimary{url}
+                  ... on TopicSecondary{url}
+                  ... on TopicTertiary{url}
+                }
+              }
             }
-            ... on TopicSecondary{
+            ... on Webinar {
               title
               url
+              readTime
+              summary
+              topicSelector{
+                mainTopic{
+                  ... on TopicPrimary{url}
+                  ... on TopicSecondary{url}
+                  ... on TopicTertiary{url}
+                }
+              }
             }
-            ... on TopicTertiary{
+            ... on Document {
               title
               url
+              readTime
+              summary
+              topicSelector{
+                mainTopic{
+                  ... on TopicPrimary{url}
+                  ... on TopicSecondary{url}
+                  ... on TopicTertiary{url}
+                }
+              }
             }
-          }
-        }
-      }
-     ... on Document {
-        title
-        url
-        summary
-        publishedDate
-        body
-        featuredImageGroup{
-          imageAltText
-          featuredImage{url}
-        }
-        contributor{
-          contributorName
-          contributorImage{
-            image{url}
-          }
-        }
-				topicSelector{
-          mainTopic{
-            ... on TopicPrimary{
+            ... on Podcast {
               title
               url
+              readTime
+              summary
+              topicSelector{
+                mainTopic{
+                  ... on TopicPrimary{url}
+                  ... on TopicSecondary{url}
+                  ... on TopicTertiary{url}
+                }
+              }
             }
-            ... on TopicSecondary{
+            ... on Slideshow {
               title
               url
+              readTime
+              summary
+              topicSelector{
+                mainTopic{
+                  ... on TopicPrimary{url}
+                  ... on TopicSecondary{url}
+                  ... on TopicTertiary{url}
+                }
+              }
             }
-            ... on TopicTertiary{
+            ... on Video {
               title
               url
-            }
-          }
-          additionalTopics{
-            ... on TopicPrimary{
-              title
-              url
-            }
-            ... on TopicSecondary{
-              title
-              url
-            }
-            ... on TopicTertiary{
-              title
-              url
+              readTime
+              summary
+              topicSelector{
+                mainTopic{
+                  ... on TopicPrimary{url}
+                  ... on TopicSecondary{url}
+                  ... on TopicTertiary{url}
+                }
+              }
             }
           }
         }
       }
-     ... on Webinar {
-        title
-        url
-        summary
-        publishedDate
-        body
-        featuredImageGroup{
-          imageAltText
-          featuredImage{url}
-        }
-        contributor{
-          contributorName
-          contributorImage{
-            image{url}
-          }
-        }
-				topicSelector{
-          mainTopic{
-            ... on TopicPrimary{
-              title
-              url
-            }
-            ... on TopicSecondary{
-              title
-              url
-            }
-            ... on TopicTertiary{
-              title
-              url
-            }
-          }
-          additionalTopics{
-            ... on TopicPrimary{
-              title
-              url
-            }
-            ... on TopicSecondary{
-              title
-              url
-            }
-            ... on TopicTertiary{
-              title
-              url
-            }
-          }
-        }
-      }
-     ... on Podcast {
-        title
-        url
-        summary
-        publishedDate
-        body
-        featuredImageGroup{
-          imageAltText
-          featuredImage{url}
-        }
-        contributor{
-          contributorName
-          contributorImage{
-            image{url}
-          }
-        }
-				topicSelector{
-          mainTopic{
-            ... on TopicPrimary{
-              title
-              url
-            }
-            ... on TopicSecondary{
-              title
-              url
-            }
-            ... on TopicTertiary{
-              title
-              url
-            }
-          }
-          additionalTopics{
-            ... on TopicPrimary{
-              title
-              url
-            }
-            ... on TopicSecondary{
-              title
-              url
-            }
-            ... on TopicTertiary{
-              title
-              url
-            }
-          }
-        }
-      }
-     ... on Slideshow {
-        title
-        url
-        summary
-        publishedDate
-        body
-        featuredImageGroup{
-          imageAltText
-          featuredImage{url}
-        }
-        contributor{
-          contributorName
-          contributorImage{
-            image{url}
-          }
-        }
-				topicSelector{
-          mainTopic{
-            ... on TopicPrimary{
-              title
-              url
-            }
-            ... on TopicSecondary{
-              title
-              url
-            }
-            ... on TopicTertiary{
-              title
-              url
-            }
-          }
-          additionalTopics{
-            ... on TopicPrimary{
-              title
-              url
-            }
-            ... on TopicSecondary{
-              title
-              url
-            }
-            ... on TopicTertiary{
-              title
-              url
-            }
-          }
-        }
-      }
-      ... on Video {
-        title
-        url
-        summary
-        publishedDate
-        body
-        featuredImageGroup{
-          imageAltText
-          featuredImage{url}
-        }
-        contributor{
-          contributorName
-          contributorImage{
-            image{url}
-          }
-        }
-				topicSelector{
-          mainTopic{
-            ... on TopicPrimary{
-              title
-              url
-            }
-            ... on TopicSecondary{
-              title
-              url
-            }
-            ... on TopicTertiary{
-              title
-              url
-            }
-          }
-          additionalTopics{
-            ... on TopicPrimary{
-              title
-              url
-            }
-            ... on TopicSecondary{
-              title
-              url
-            }
-            ... on TopicTertiary{
-              title
-              url
-            }
-          }
-        }
-      }
-    }
-  }
-}

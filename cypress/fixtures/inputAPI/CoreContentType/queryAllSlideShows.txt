@@ -1,134 +1,108 @@
 query {
-  all_slideshow {
-    meta {
-      total
-    }
-    items {
-      uid
-      title
-      mobileHeadline
-      url
-      publishedDate
-      summary
-      body
-      bodyJson
-      updatedAt
-      updatedBy
-      createdAt
-      createdBy
-      contributor {
-        title
-        uid
-        url
-        userRoles
-        contributorName
-        contributorDescription
-        contributorRole
-        contributorImage {
-          image {
+        all_slideshow {
+          items {
+            title
+            readTime
+            publishedDate
+            mobileHeadline
+            contentFormat {
+              title
+            }
+            contributor {
+              title
+            }
+            summary
+            summaryJson
+            atAGlance {
+              shortGlanceVersions
+            }
+            body
+            bodyJson
+            relatedInlineContent {
+              relatedItem {
+                __typename
+              }
+            }
+            featuredImageGroup {
+              featuredImage {
+                url
+              }
+            }
+           
+            topicSelector {
+              mainTopic {
+                ... on TopicPrimary {
+                  uid
+                  title
+                  url
+                }
+                ... on TopicSecondary {
+                  uid
+                  title
+                  url
+                }
+              }
+              additionalTopics {
+                ... on TopicPrimary {
+                  uid
+                  title
+                  url
+                }
+                ... on TopicSecondary {
+                  uid
+                  title
+                  url
+                }
+                ... on TopicTertiary {
+                  uid
+                  title
+                  url
+                }
+              }
+            }
+            seriesTaxonomy {
+              title
+              uid
+              createdAt
+            }
+            keywords {
+              title
+            }
+            subbrand {
+              title
+            }
+            sponsorshipGatingGroup {
+              sponsorshipGatingSponsorFlag
+              sponsorshipGatingExternalFormId
+              sponsorshipGatingGateExternalFieldFlag
+              sponsorshipGatingGateRegFlag
+              sponsorshipGatingSponsorReference {
+                title
+              }
+            }
+            relatedEvents {
+              title
+              uid
+            }
+            seo {
+              metaTitle
+              metaDescription
+              canonicalUrl
+              noIndex
+            }
+            publishedDate
             url
+            slideshow {
+              slideImage {
+                url
+              }
+              slideTitle
+              slideImageCaption
+              slideImageCredit
+              slideImageAltText
+              slideImageDescription
+              slideImageDescriptionJson
+            }
           }
-          imageAltText
         }
       }
-      contentFormat {
-        title
-        uid
-        pageDescription
-        updatedAt
-        updatedBy
-        url
-        locale
-      }
-      slideshow{
-        slideImage{
-          url
-        }
-        slideTitle
-        slideImageCredit
-        slideImageAltText
-        slideImageCaption
-        slideImageDescription
-      }
-      featuredImageGroup {
-        featuredImage {
-          url
-        }
-        featuredImageCredit
-        featuredImageCaption
-      }
-      atAGlance {
-        shortGlanceVersions
-      }
-     topicSelector{
-      mainTopic{
-        __typename
-        ... on TopicPrimary{
-          title
-          url
-        }
-        ... on TopicSecondary{
-          title
-          url
-        }
-        ... on TopicTertiary{
-          title
-          url
-        }
-      }
-      additionalTopics{
-        __typename
-        ... on TopicPrimary{
-          title
-          url
-        }
-        ... on TopicSecondary{
-          title
-          url
-        }
-        ... on TopicTertiary{
-          title
-          url
-        }
-      }
-    }
-      subbrand {
-        title
-        locale
-        uid
-        url
-        subbrandLogoGroup {
-          subbrandImage {
-            url
-          }
-          subbrandImageAltText
-        }
-      }
-      keywords {
-        keywordBranding {
-          keywordBrandingLogo {
-            url
-          }
-          keywordBrandingColor
-          keywordBrandingLogoAltText
-          keywordBrandingDescriptionWithHyperlink
-        }
-        keywordDescription
-        keywordDisplayOptions
-        keywordSponsorReference {
-          summary
-          title
-          uid
-          publishedDate
-          sponsorUrl
-        }
-      }
-      seo {
-        metaTitle
-        metaDescription
-        canonicalUrl
-        noIndex
-      }
-    }
-  }
-}

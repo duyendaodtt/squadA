@@ -1,17 +1,18 @@
 query {
-  all_module_newsletter_promo(
-    where: { uidIn: ["bltab11c37a0604abb2", "blt0c3882df2bf23c8a"] }
-  ) {
-    entries {
-      title
-      ctaButton{
-        ctaButtonText
-        ctaButtonUrl{
-          href
-          title
+        all_module_newsletter_promo(where: {
+          uidIn: ["bltab11c37a0604abb2", "asd"]
+        }) {
+          entries {
+            title
+            uid
+            ctaMessage
+            ctaButton {
+              ctaButtonUrl {
+                title
+                href
+              }
+              ctaButtonText
+            }
+          }
         }
       }
-      ctaMessage
-    }
-  }
-}

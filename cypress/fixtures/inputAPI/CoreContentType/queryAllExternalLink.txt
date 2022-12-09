@@ -1,34 +1,34 @@
 query {
-        all_podcast {
+        all_external_link {
           items {
             title
-            readTime
-            publishedDate
             mobileHeadline
             contentFormat {
               title
+              pageDescription
+              seo {
+                metaTitle
+                metaDescription
+                canonicalUrl
+                noIndex
+              }
+              url
             }
             contributor {
               title
+              contributorImage{image{url}}
             }
             summary
             summaryJson
-            atAGlance {
-              shortGlanceVersions
-            }
-            body
-            bodyJson
-            relatedInlineContent {
-              relatedItem {
-                __typename
-              }
-            }
             featuredImageGroup {
               featuredImage {
                 url
-                __typename
               }
+              featuredImageCredit
+              featuredImageCaption
+              imageAltText
             }
+            externalLink
             
             topicSelector {
               mainTopic {
@@ -63,29 +63,28 @@ query {
             }
             seriesTaxonomy {
               title
-              uid
-              createdAt
             }
-      
             keywords {
               title
             }
             subbrand {
-              __typename
+              title
             }
             sponsorshipGatingGroup {
               sponsorshipGatingSponsorFlag
-              sponsorshipGatingExternalFormId
-              sponsorshipGatingGateExternalFieldFlag
-              sponsorshipGatingGateRegFlag
               sponsorshipGatingSponsorReference {
-                url
+                title
               }
+              sponsorshipGatingCampaignUrl
+              sponsorshipGatingGateRegFlag
+              sponsorshipGatingGateExternalFieldFlag
+              sponsorshipGatingExternalFormId
             }
             relatedEvents {
               title
               uid
             }
+            publishedDate
             seo {
               metaTitle
               metaDescription
@@ -93,17 +92,6 @@ query {
               noIndex
             }
             url
-            podcast {
-              podcastId
-              podcastService
-              podcastLink
-              duration {
-                duration
-              }
-            }
-          }
-          meta {
-            total
           }
         }
       }

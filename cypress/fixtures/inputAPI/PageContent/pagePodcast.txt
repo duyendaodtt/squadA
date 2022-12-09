@@ -1,80 +1,66 @@
 query {
-  page_podcasts {
-    meta {
-      pagination {
-        limit
-        page
-        total
-        totalPage
-      }
-    }
-    items {
-      title
-      uid
-      atAGlance {
-        shortGlanceVersions
-      }
-      body
-      bodyJson
-      contentFormat {
-        title
-      }
-      contentTypeUid
-      contributor {
-        contributorName
-        contributorImage {
-          image {
-            url
+        page_podcasts{
+          meta {
+            pagination {
+              limit
+              page
+              total
+              totalPage
+            }
           }
-          imageAltText
+          items {
+            title
+            readTime
+            url
+            uid
+            body
+            bodyJson
+            contentFormat {
+              title
+              url
+            }
+            featuredImageGroup {
+              featuredImage {
+                url
+              }
+              featuredImageCaption
+              imageAltText
+              featuredImageCredit
+            }
+      
+            summary
+            contentTypeUid
+            createdAt
+            url
+            title
+            keywords {
+              title
+              url
+            }
+            subbrand {
+              title
+              url
+            }
+            publishedDate
+            contributor {
+              title
+              url
+            }
+      
+            seo {
+              metaDescription
+              metaTitle
+            }
+            publishedDate
+            mobileHeadline
+            podcast {
+              duration {
+                duration
+              }
+              podcastId
+              podcastLink
+              podcastService
+            }
+          }
         }
       }
-      featuredImageGroup {
-        featuredImage {
-          url
-        }
-        featuredImageCaption
-        featuredImageCredit
-        imageAltText
-      }
-			
-      keywords {
-        contentTypeUid
-        title
-        url
-      }
-      locale
-      mobileHeadline
-      publishedDate
-      readTime
-      relatedEvents {
-        contentTypeUid
-        title
-      }
-      relatedInlineContent {
-        relatedItem {
-          __typename
-        }
-      }
-      seo {
-        canonicalUrl
-        metaDescription
-        metaTitle
-        noIndex
-      }
-			podcast{
-        duration{
-          duration
-        }
-        podcastId
-        podcastLink
-        podcastService
-      }
-      summary
-      seriesTaxonomy {
-        title
-        url
-      }
-    }
-  }
-}

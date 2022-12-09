@@ -1,52 +1,94 @@
-query  {
-  page_events(
-    limit: 25
-  ) {
-    meta {
-      pagination {
-        limit
-        page
-        total
-        totalPage
-      }
-    }
-    items {
-      title
-      url
-      eventDescription
-      uid
-      createdAt
-      createdBy
-      locale
-      updatedAt
-      updatedBy
-      eventDetails {
-        startDate
-        endDate
-        eventLogo {
-          eventLogoAlt
-          logoFile {
+query {
+        page_events {
+          meta {
+            pagination {
+              limit
+              page
+              total
+              totalPage
+            }
+          }
+          items {
+            title
+            contentTypeUid
+            createdAt
+            createdBy
+            eventDetails {
+              endDate
+              eventLogo {
+                eventLogoAlt
+                logoFile {
+                  url
+                }
+              }
+              buttons {
+                buttonLink
+                buttonName
+              }
+              eventType
+              eventUrl
+              location
+              startDate
+            }
+            locale
+            publishDetails {
+              locale
+              time
+            }
+            relatedInlineContent {
+              relatedItem {
+                ... on Article {
+                  title
+                  url
+                  readTime
+                  publishedDate
+                  featuredImageGroup{featuredImage{url}}
+                }
+                ... on Podcast {
+                  title
+                  url
+                  readTime
+                  publishedDate
+                  featuredImageGroup{featuredImage{url}}
+                }
+                ... on Document {
+                  title
+                  url
+                }
+                ... on Video {
+                  title
+                  url
+                  readTime
+                  publishedDate
+                  featuredImageGroup{featuredImage{url}}
+                }
+                ... on Webinar {
+                  title
+                  url
+                  readTime
+                  publishedDate
+                  featuredImageGroup{featuredImage{url}}
+                }
+                ... on Slideshow {
+                  title
+                  url
+                  readTime
+                  publishedDate
+                  featuredImageGroup{featuredImage{url}}
+                }
+              }
+            }
+            seo {
+              canonicalUrl
+              metaDescription
+              metaTitle
+              noIndex
+            }
+            title
+            uid
+            updatedAt
+            updatedBy
             url
           }
         }
-        buttons {
-          buttonLink
-          buttonName
-        }
-        eventType
-        eventUrl
-        location
       }
-      publishDetails {
-        locale
-        time
-      }
-      seo {
-        canonicalUrl
-        metaDescription
-        metaTitle
-        noIndex
-      }
-    }
-  }
-}

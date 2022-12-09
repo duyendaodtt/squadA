@@ -1,314 +1,10 @@
 query {
-  page_content_format(where: { url: "/latest-news" }) {
-    items {
-      __typename
-      ... on Article {
-        title
-        url
-        summary
-        publishedDate
-        body
-        featuredImageGroup {
-          imageAltText
-          featuredImage {
-            url
-          }
-        }
-        contributor {
-          contributorName
-          contributorImage {
-            image {
-              url
-            }
-          }
-        }
-        topicSelector {
-          mainTopic {
-            ... on TopicPrimary {
-              title
-              url
-            }
-            ... on TopicSecondary {
-              title
-              url
-            }
-            ... on TopicTertiary {
-              title
-              url
-            }
-          }
-          additionalTopics {
-            ... on TopicPrimary {
-              title
-              url
-            }
-            ... on TopicSecondary {
-              title
-              url
-            }
-            ... on TopicTertiary {
-              title
-              url
-            }
-          }
-        }
-      }
-      ... on Document {
-        title
-        url
-        summary
-        publishedDate
-        body
-        featuredImageGroup {
-          imageAltText
-          featuredImage {
-            url
-          }
-        }
-        contributor {
-          contributorName
-          contributorImage {
-            image {
-              url
-            }
-          }
-        }
-        topicSelector {
-          mainTopic {
-            ... on TopicPrimary {
-              title
-              url
-            }
-            ... on TopicSecondary {
-              title
-              url
-            }
-            ... on TopicTertiary {
-              title
-              url
-            }
-          }
-          additionalTopics {
-            ... on TopicPrimary {
-              title
-              url
-            }
-            ... on TopicSecondary {
-              title
-              url
-            }
-            ... on TopicTertiary {
-              title
-              url
-            }
-          }
-        }
-      }
-      ... on Webinar {
-        title
-        url
-        summary
-        publishedDate
-        body
-        featuredImageGroup {
-          imageAltText
-          featuredImage {
-            url
-          }
-        }
-        contributor {
-          contributorName
-          contributorImage {
-            image {
-              url
-            }
-          }
-        }
-        topicSelector {
-          mainTopic {
-            ... on TopicPrimary {
-              title
-              url
-            }
-            ... on TopicSecondary {
-              title
-              url
-            }
-            ... on TopicTertiary {
-              title
-              url
-            }
-          }
-          additionalTopics {
-            ... on TopicPrimary {
-              title
-              url
-            }
-            ... on TopicSecondary {
-              title
-              url
-            }
-            ... on TopicTertiary {
-              title
-              url
-            }
-          }
-        }
-      }
-      ... on Podcast {
-        title
-        url
-        summary
-        publishedDate
-        body
-        featuredImageGroup {
-          imageAltText
-          featuredImage {
-            url
-          }
-        }
-        contributor {
-          contributorName
-          contributorImage {
-            image {
-              url
-            }
-          }
-        }
-        topicSelector {
-          mainTopic {
-            ... on TopicPrimary {
-              title
-              url
-            }
-            ... on TopicSecondary {
-              title
-              url
-            }
-            ... on TopicTertiary {
-              title
-              url
-            }
-          }
-          additionalTopics {
-            ... on TopicPrimary {
-              title
-              url
-            }
-            ... on TopicSecondary {
-              title
-              url
-            }
-            ... on TopicTertiary {
-              title
-              url
-            }
-          }
-        }
-      }
-      ... on Slideshow {
-        title
-        url
-        summary
-        publishedDate
-        body
-        featuredImageGroup {
-          imageAltText
-          featuredImage {
-            url
-          }
-        }
-        contributor {
-          contributorName
-          contributorImage {
-            image {
-              url
-            }
-          }
-        }
-        topicSelector {
-          mainTopic {
-            ... on TopicPrimary {
-              title
-              url
-            }
-            ... on TopicSecondary {
-              title
-              url
-            }
-            ... on TopicTertiary {
-              title
-              url
-            }
-          }
-          additionalTopics {
-            ... on TopicPrimary {
-              title
-              url
-            }
-            ... on TopicSecondary {
-              title
-              url
-            }
-            ... on TopicTertiary {
-              title
-              url
-            }
-          }
-        }
-      }
-      ... on Video {
-        title
-        url
-        summary
-        publishedDate
-        body
-        featuredImageGroup {
-          imageAltText
-          featuredImage {
-            url
-          }
-        }
-        contributor {
-          contributorName
-          contributorImage {
-            image {
-              url
-            }
-          }
-        }
-        topicSelector {
-          mainTopic {
-            ... on TopicPrimary {
-              title
-              url
-            }
-            ... on TopicSecondary {
-              title
-              url
-            }
-            ... on TopicTertiary {
-              title
-              url
-            }
-          }
-          additionalTopics {
-            ... on TopicPrimary {
-              title
-              url
-            }
-            ... on TopicSecondary {
-              title
-              url
-            }
-            ... on TopicTertiary {
-              title
-              url
-            }
-          }
-        }
-      }
-    }
+  page_content_format(
+    limit: 30
+    page: 1
+    sort: newest
+    where: { url: "/latest-news" }
+  ) {
     meta {
       pagination {
         limit
@@ -317,21 +13,244 @@ query {
         totalPage
       }
       entry {
-        createdAt
-        createdBy
-        locale
-        pageDescription
-        seo {
-          canonicalUrl
-          metaDescription
-          metaTitle
-          noIndex
-        }
         title
         uid
-        updatedAt
-        updatedBy
         url
+
+        seo {
+          metaTitle
+          metaDescription
+          canonicalUrl
+          noIndex
+        }
+      }
+    }
+    items {
+      __typename
+      ... on Article {
+        title
+        uid
+        url
+        summary
+        publishedDate
+        createdAt
+        topicSelector{
+          mainTopic{
+            __typename
+            ... on TopicPrimary{url}
+            ... on TopicSecondary{url}
+            ... on TopicTertiary{url}
+          }
+        }
+        featuredImageGroup {
+          featuredImage {
+            url
+          }
+          featuredImageCredit
+          featuredImageCaption
+        }
+        contributor {
+          contributorName
+          contributorImage {
+            image {
+              url
+            }
+            imageAltText
+          }
+        }
+      }
+      ... on Video {
+        title
+        uid
+        url
+        summary
+        publishedDate
+        topicSelector{
+          mainTopic{
+            __typename
+            ... on TopicPrimary{url}
+            ... on TopicSecondary{url}
+            ... on TopicTertiary{url}
+          }
+        }
+        featuredImageGroup {
+          featuredImage {
+            url
+          }
+          featuredImageCredit
+          featuredImageCaption
+        }
+        contributor {
+          contributorName
+          contributorImage {
+            image {
+              url
+            }
+            imageAltText
+          }
+        }
+        video {
+          duration {
+            duration
+          }
+          videoId
+          videoCredit
+          videoService
+        }
+      }
+      ... on Webinar {
+        title
+        uid
+        url
+        summary
+        publishedDate
+        topicSelector{
+          mainTopic{
+            __typename
+            ... on TopicPrimary{url}
+            ... on TopicSecondary{url}
+            ... on TopicTertiary{url}
+          }
+        }
+        featuredImageGroup {
+          featuredImage {
+            url
+          }
+          featuredImageCredit
+          featuredImageCaption
+        }
+        contributor {
+          contributorName
+          contributorImage {
+            image {
+              url
+            }
+            imageAltText
+          }
+        }
+        webinarGroup {
+          webinarId
+          webinarUrl
+          webinarService
+          webinarStartDateAndTime
+        }
+      }
+      ... on Podcast {
+        title
+        uid
+        url
+        readTime
+        summary
+        publishedDate
+        topicSelector{
+          mainTopic{
+            __typename
+            ... on TopicPrimary{url}
+            ... on TopicSecondary{url}
+            ... on TopicTertiary{url}
+          }
+        }
+        featuredImageGroup {
+          featuredImage {
+            url
+          }
+          featuredImageCredit
+          featuredImageCaption
+        }
+        contributor {
+          contributorName
+          contributorImage {
+            image {
+              url
+            }
+            imageAltText
+          }
+        }
+        podcast {
+          duration {
+            duration
+          }
+          podcastId
+          podcastLink
+          podcastService
+        }
+      }
+      ... on Document {
+        title
+        uid
+        url
+        summary
+        publishedDate
+        topicSelector{
+          mainTopic{
+            __typename
+            ... on TopicPrimary{url}
+            ... on TopicSecondary{url}
+            ... on TopicTertiary{url}
+          }
+        }
+        featuredImageGroup {
+          featuredImage {
+            url
+          }
+          featuredImageCredit
+          featuredImageCaption
+        }
+        contributor {
+          contributorName
+          contributorImage {
+            image {
+              url
+            }
+            imageAltText
+          }
+        }
+        document {
+          materialUrl
+          materialTitle
+        }
+      }
+      ... on Slideshow {
+        title
+        uid
+        url
+        summary
+        publishedDate
+        topicSelector{
+          mainTopic{
+            __typename
+            ... on TopicPrimary{url}
+            ... on TopicSecondary{url}
+            ... on TopicTertiary{url}
+          }
+        }
+        featuredImageGroup {
+          featuredImage {
+            url
+          }
+          featuredImageCredit
+          featuredImageCaption
+        }
+        contributor {
+          contributorName
+          contributorImage {
+            image {
+              url
+            }
+            imageAltText
+          }
+        }
+        slideshow{
+          slideEmbed
+          slideImage{
+            url
+          }
+          slideTitle
+          slideImageAltText
+          slideImageCaption
+          slideImageCredit
+          slideImageDescription
+        }
       }
     }
   }

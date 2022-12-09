@@ -1,120 +1,103 @@
 query {
-  all_article {
-    meta {
-      total
-    }
-    items {
-      uid
-      title
-      mobileHeadline
-      url
-      publishedDate
-      summary
-      body
-      bodyJson
-      updatedAt
-      updatedBy
-      createdAt
-      createdBy
-      contributor {
-        title
-        uid
-        url
-        userRoles
-        contributorName
-        contributorDescription
-        contributorRole
-        contributorImage {
-          image {
+        all_article {
+          items {
+            title
+            readTime
+            publishedDate
+            url
+            mobileHeadline
+            contentFormat {
+              title
+              url
+            }
+            contributor {
+              title
+              contributorImage{image{url}}
+            }
+            summary
+            atAGlance {
+              shortGlanceVersions
+            }
+            body
+            bodyJson
+            relatedInlineContent {
+              relatedItem {
+                __typename
+              }
+            }
+            featuredImageGroup {
+              featuredImage{
+                __typename
+              }
+              featuredImageCredit
+              featuredImageCaption
+            }
+            
+            topicSelector {
+              mainTopic {
+                ... on TopicPrimary {
+                  uid
+                  title
+                  url
+                }
+                ... on TopicSecondary {
+                  uid
+                  title
+                  url
+                }
+              }
+              additionalTopics {
+                ... on TopicPrimary {
+                  uid
+                  title
+                  url
+                }
+                ... on TopicSecondary {
+                  uid
+                  title
+                  url
+                }
+                ... on TopicTertiary {
+                  uid
+                  title
+                  url
+                }
+              }
+            }
+            seriesTaxonomy {
+              title
+              uid
+              createdAt
+            }
+            keywords {
+              title
+            }
+            subbrand {
+              __typename
+            }
+            sponsorshipGatingGroup {
+              sponsorshipGatingSponsorFlag
+              sponsorshipGatingExternalFormId
+              sponsorshipGatingGateExternalFieldFlag
+              sponsorshipGatingGateRegFlag
+              sponsorshipGatingSponsorReference {
+                __typename
+              }
+            }
+            relatedEvents {
+              title
+              uid
+            }
+            seo {
+              metaTitle
+              metaDescription
+              canonicalUrl
+              noIndex
+            }
             url
           }
-          imageAltText
-        }
-      }
-      contentFormat {
-        title
-        uid
-        pageDescription
-        updatedAt
-        updatedBy
-        url
-        locale
-      }
-      featuredImageGroup {
-        featuredImage {
-          url
-        }
-        featuredImageCredit
-        featuredImageCaption
-      }
-      atAGlance {
-        shortGlanceVersions
-      }
-      topicSelector{
-        mainTopic{
-          __typename
-          ... on TopicPrimary{
-            title
-            url
-          }
-          ... on TopicSecondary{
-            title
-            url
-          }
-          ... on TopicTertiary{
-            title
-            url
-          }
-        }
-        additionalTopics{
-          ... on TopicPrimary{
-            title
-          }
-          ... on TopicSecondary{
-            title
-          }
-          ... on TopicTertiary{
-            title
+          meta {
+            total
           }
         }
       }
-      subbrand {
-        title
-        locale
-        uid
-        url
-        subbrandLogoGroup {
-          subbrandImage {
-            url
-          }
-          subbrandImageAltText
-        }
-      }
-      keywords {
-        keywordBranding {
-          keywordBrandingLogo {
-            url
-          }
-          keywordBrandingColor
-          keywordBrandingLogoAltText
-          keywordBrandingDescriptionWithHyperlink
-        }
-        keywordDescription
-        keywordDisplayOptions
-        keywordSponsorReference {
-          summary
-          title
-          uid
-          publishedDate
-          sponsorUrl
-        }
-      }
-      seo {
-        metaTitle
-        metaDescription
-        canonicalUrl
-        noIndex
-      }
-    }
-  }
-}

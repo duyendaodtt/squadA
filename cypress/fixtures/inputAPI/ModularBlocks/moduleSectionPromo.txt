@@ -1,71 +1,135 @@
 query {
-  all_module_section_promo(
-    where: { uidIn: ["blt2de333e1df03ebe7", "blt37735da997003323"] }
-  ) {
-    entries {
-      meta{
-        entry{
-          title
-          ctaButton{ url
-          text}
-          coverageButton{
-            url
-            text
+        all_module_section_promo(where: { uidIn: ["blt37735da997003323"] }) {
+          entries {
+            items {
+              ... on Article {
+                title
+                url
+                readTime
+                publishedDate
+                topicSelector{
+                  mainTopic{
+                    __typename
+                    ... on TopicPrimary{url}
+                    ... on TopicSecondary{url}
+                    ... on TopicTertiary{url}
+                  }
+                }
+              }
+              ... on Document {
+                title
+                url
+                readTime
+                publishedDate
+                topicSelector{
+                  mainTopic{
+                    __typename
+                    ... on TopicPrimary{url}
+                    ... on TopicSecondary{url}
+                    ... on TopicTertiary{url}
+                  }
+                }
+              }
+              ... on Podcast {
+                title
+                url
+                readTime
+                publishedDate
+                topicSelector{
+                  mainTopic{
+                    __typename
+                    ... on TopicPrimary{url}
+                    ... on TopicSecondary{url}
+                    ... on TopicTertiary{url}
+                  }
+                }
+              }
+              ... on Slideshow {
+                title
+                url
+                readTime
+                publishedDate
+                topicSelector{
+                  mainTopic{
+                    __typename
+                    ... on TopicPrimary{url}
+                    ... on TopicSecondary{url}
+                    ... on TopicTertiary{url}
+                  }
+                }
+              }
+              ... on Video {
+                title
+                url
+                readTime
+                publishedDate
+                topicSelector{
+                  mainTopic{
+                    __typename
+                    ... on TopicPrimary{url}
+                    ... on TopicSecondary{url}
+                    ... on TopicTertiary{url}
+                  }
+                }
+              }
+              ... on Webinar {
+                title
+                url
+                readTime
+                publishedDate
+                topicSelector{
+                  mainTopic{
+                    __typename
+                    ... on TopicPrimary{url}
+                    ... on TopicSecondary{url}
+                    ... on TopicTertiary{url}
+                  }
+                }
+              }
+              ... on ExternalLink {
+                title
+                url
+                publishedDate
+                topicSelector{
+                  mainTopic{
+                    __typename
+                    ... on TopicPrimary{url}
+                    ... on TopicSecondary{url}
+                    ... on TopicTertiary{url}
+                  }
+                }
+              }
+              ... on Event {
+                url
+              }
+            }
+            meta {
+              entry {
+                title
+                moduleDisplayOption
+                logo {
+                  url
+                }
+                altText
+                logoPosition
+                description
+                ctaButton {
+                  text
+                  url
+                }
+                coverageButton {
+                  text
+                  url
+                }
+                background {
+                  image {
+                    url
+                  }
+                  altText
+                  backgroundColor
+                }
+              }
+            }
           }
-          description
-          logo{ url}
-          logoPosition
-          moduleDisplayOption
         }
       }
-      items{
-        __typename
-        ... on Article{
-          title
-          summary
-          url
-        }
-        ... on Document{
-          title
-          summary
-          url
-        }
-        ... on Event{
-          title
-          eventDescription
-          url
-        }
-        ... on ExternalLink{
-          title
-          summary
-          url
-        }
-        ... on Magazine{
-          title
-          summary
-          url
-        }
-        ... on Podcast{
-          title
-          summary
-          url
-        }
-        ... on Slideshow{
-          title
-          summary
-          url
-        }
-        ... on Video{
-          title
-          summary
-          url
-        }
-        ... on Webinar{
-          title
-          summary
-          url
-        }
-      }
-    }
-  }
-}

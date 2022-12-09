@@ -1,128 +1,82 @@
 query {
-  all_document {
-    meta {
-      total
-    }
-    items {
-      uid
-      title
-      mobileHeadline
-      url
-      publishedDate
-      summary
-      body
-      bodyJson
-      updatedAt
-      updatedBy
-      createdAt
-      createdBy
-      contentTypeUid
-      contributor {
-        title
-        uid
-        url
-        userRoles
-        contributorName
-        contributorDescription
-        contributorRole
-        contributorImage {
-          image {
-            url
-          }
-          imageAltText
-        }
-      }
-      contentFormat {
-        title
-        uid
-        pageDescription
-        updatedAt
-        updatedBy
-        url
-        locale
-      }
-      featuredImageGroup {
-        featuredImage {
-          url
-        }
-        featuredImageCredit
-        featuredImageCaption
-      }
-      atAGlance {
-        shortGlanceVersions
-      }
-      topicSelector{
-        mainTopic{
-          __typename
-          ... on TopicPrimary{
-            title
-            url
-          }
-          ... on TopicSecondary{
-            title
-            url
-          }
-          ... on TopicTertiary{
-            title
-            url
-          }
-        }
-        additionalTopics{
-          ... on TopicPrimary{
-            title
-          }
-          ... on TopicSecondary{
-            title
-          }
-          ... on TopicTertiary{
-            title
-          }
-        }
-      }
-      subbrand {
-        title
-        locale
-        uid
-        url
-        subbrandLogoGroup {
-          subbrandImage {
-            url
-          }
-          subbrandImageAltText
-        }
-      }
-      keywords {
-        keywordBranding {
-          keywordBrandingLogo {
-            url
-          }
-          keywordBrandingColor
-          keywordBrandingLogoAltText
-          keywordBrandingDescriptionWithHyperlink
-        }
-        keywordDescription
-        keywordDisplayOptions
-        keywordSponsorReference {
-          summary
+      all_document {
+        items {
           title
-          uid
+          readTime
           publishedDate
-          sponsorUrl
-        }
-      }
-      seo {
-        metaTitle
-        metaDescription
-        canonicalUrl
-        noIndex
-      }
-			document{
-        materialUrl
-        materialTitle
-        materialMultiple{
+          mobileHeadline
+          contentFormat {
+            title
+          }
+          contributor {
+            title
+          }
+          summary
+          summaryJson
+          atAGlance {
+            shortGlanceVersions
+          }
+          body
+          bodyJson
+          relatedInlineContent {
+            relatedItem {
+              __typename
+            }
+          }
+          
+          topicSelector {
+            mainTopic {
+              ... on TopicPrimary {
+                uid
+                title
+                url
+              }
+              ... on TopicSecondary {
+                uid
+                title
+                url
+              }
+            }
+            additionalTopics {
+              ... on TopicPrimary {
+                uid
+                title
+                url
+              }
+              ... on TopicSecondary {
+                uid
+                title
+                url
+              }
+              ... on TopicTertiary {
+                uid
+                title
+                url
+              }
+            }
+          }
+          seriesTaxonomy {
+            title
+            uid
+            createdAt
+          }
+          keywords {
+            title
+          }
+          relatedEvents {
+            title
+            uid
+          }
+          seo {
+            metaTitle
+            metaDescription
+            canonicalUrl
+            noIndex
+          }
           url
+        }
+        meta {
+          total
         }
       }
     }
-  }
-}

@@ -1,241 +1,273 @@
 query {
-  all_module_content_spotlight(
-    where: { uidIn: ["bltbd430d2b41e36ca6", "bltb2841008cdfd0f1d"] }
-  ) {
+  all_module_content_spotlight(where: { uid: "bltbd430d2b41e36ca6" }) {
     entries {
-      title
-      uid
-      ctaButtonText
-      displayOptions {
-        darkLightToggle
-        textAlignment
-        textPosition
+      __typename
+      adConfiguration{
+        displayAdOption
       }
+      title
+      ctaButtonText
       promoLabel
-      promotedContent{
+      uid
+      displayOptions {
+        textPosition
+        textAlignment
+        darkLightToggle
+      }
+      promotedContent {
         __typename
-        ... on Article{
+        ... on Article {
           title
+          mobileHeadline
           url
-          contributor{
-            contributorName
-            contributorImage{image{url}}
+          summary
+          atAGlance {
+            shortGlanceVersions
           }
-          topicSelector{
-            mainTopic{
-              ... on TopicPrimary{
-                title
-                url
-              }
-              ... on TopicSecondary{
-                title
-                url
-              }
-              ... on TopicTertiary{
-                title
-                url
-              }
+          body
+          bodyJson
+          summaryJson
+          seo {
+            metaTitle
+          }
+          readTime
+          publishedDate
+          relatedInlineContent {
+            relatedItem {
+              url
             }
-            additionalTopics{
-              ... on TopicPrimary{
+          }
+          topicSelector {
+            mainTopic {
+              ... on TopicPrimary {
                 title
                 url
               }
-              ... on TopicSecondary{
+              ... on TopicSecondary {
                 title
                 url
               }
-              ... on TopicTertiary{
+              ... on TopicTertiary {
                 title
                 url
               }
             }
           }
         }
-        ... on Document{
+        ... on Document {
           title
+          mobileHeadline
           url
-          contributor{
-            contributorName
-            contributorImage{image{url}}
+          summary
+          atAGlance {
+            shortGlanceVersions
           }
-          topicSelector{
-            mainTopic{
-              ... on TopicPrimary{
-                title
-                url
-              }
-              ... on TopicSecondary{
-                title
-                url
-              }
-              ... on TopicTertiary{
-                title
-                url
-              }
+          body
+          bodyJson
+          summaryJson
+          seo {
+            metaTitle
+          }
+          readTime
+          publishedDate
+          relatedInlineContent {
+            relatedItem {
+              url
             }
-            additionalTopics{
-              ... on TopicPrimary{
+          }
+          topicSelector {
+            mainTopic {
+              ... on TopicPrimary {
                 title
                 url
               }
-              ... on TopicSecondary{
+              ... on TopicSecondary {
                 title
                 url
               }
-              ... on TopicTertiary{
+              ... on TopicTertiary {
                 title
                 url
               }
             }
           }
         }
-        ... on Podcast{
+        ... on Podcast {
           title
+          mobileHeadline
           url
-          contributor{
-            contributorName
-            contributorImage{image{url}}
+          summary
+          atAGlance {
+            shortGlanceVersions
           }
-          topicSelector{
-            mainTopic{
-              ... on TopicPrimary{
-                title
-                url
-              }
-              ... on TopicSecondary{
-                title
-                url
-              }
-              ... on TopicTertiary{
-                title
-                url
-              }
+          body
+          bodyJson
+          summaryJson
+          seo {
+            metaTitle
+          }
+          readTime
+          publishedDate
+          relatedInlineContent {
+            relatedItem {
+              url
             }
-            additionalTopics{
-              ... on TopicPrimary{
+          }
+          topicSelector {
+            mainTopic {
+              ... on TopicPrimary {
                 title
                 url
               }
-              ... on TopicSecondary{
+              ... on TopicSecondary {
                 title
                 url
               }
-              ... on TopicTertiary{
+              ... on TopicTertiary {
                 title
                 url
               }
             }
           }
         }
-        ... on Slideshow{
+        ... on Slideshow {
           title
+          mobileHeadline
           url
-          contributor{
-            contributorName
-            contributorImage{image{url}}
+          summary
+          atAGlance {
+            shortGlanceVersions
           }
-          topicSelector{
-            mainTopic{
-              ... on TopicPrimary{
-                title
-                url
-              }
-              ... on TopicSecondary{
-                title
-                url
-              }
-              ... on TopicTertiary{
-                title
-                url
-              }
+          body
+          bodyJson
+          summaryJson
+          seo {
+            metaTitle
+          }
+          readTime
+          publishedDate
+          relatedInlineContent {
+            relatedItem {
+              url
             }
-            additionalTopics{
-              ... on TopicPrimary{
+          }
+          topicSelector {
+            mainTopic {
+              ... on TopicPrimary {
                 title
                 url
               }
-              ... on TopicSecondary{
+              ... on TopicSecondary {
                 title
                 url
               }
-              ... on TopicTertiary{
+              ... on TopicTertiary {
                 title
                 url
               }
             }
           }
         }
-        ... on Video{
+        ... on Video {
           title
+          mobileHeadline
           url
-          contributor{
-            contributorName
-            contributorImage{image{url}}
+          summary
+          atAGlance {
+            shortGlanceVersions
           }
-          topicSelector{
-            mainTopic{
-              ... on TopicPrimary{
-                title
-                url
-              }
-              ... on TopicSecondary{
-                title
-                url
-              }
-              ... on TopicTertiary{
-                title
-                url
-              }
+          body
+          bodyJson
+          summaryJson
+          seo {
+            metaTitle
+          }
+          readTime
+          publishedDate
+          relatedInlineContent {
+            relatedItem {
+              url
             }
-            additionalTopics{
-              ... on TopicPrimary{
+          }
+          topicSelector {
+            mainTopic {
+              ... on TopicPrimary {
                 title
                 url
               }
-              ... on TopicSecondary{
+              ... on TopicSecondary {
                 title
                 url
               }
-              ... on TopicTertiary{
+              ... on TopicTertiary {
                 title
                 url
               }
             }
           }
         }
-        ... on Webinar{
+        ... on Webinar {
           title
+          mobileHeadline
           url
-          contributor{
-            contributorName
-            contributorImage{image{url}}
+          summary
+          atAGlance {
+            shortGlanceVersions
           }
-          topicSelector{
-            mainTopic{
-              ... on TopicPrimary{
+          body
+          bodyJson
+          summaryJson
+          seo {
+            metaTitle
+          }
+          readTime
+          publishedDate
+          relatedInlineContent {
+            relatedItem {
+              url
+            }
+          }
+          topicSelector {
+            mainTopic {
+              ... on TopicPrimary {
                 title
                 url
               }
-              ... on TopicSecondary{
+              ... on TopicSecondary {
                 title
                 url
               }
-              ... on TopicTertiary{
+              ... on TopicTertiary {
                 title
                 url
               }
             }
-            additionalTopics{
-              ... on TopicPrimary{
+          }
+        }
+        ... on ExternalLink {
+          title
+          mobileHeadline
+          url
+          summary
+
+          summaryJson
+          seo {
+            metaTitle
+          }
+
+          publishedDate
+
+          topicSelector {
+            mainTopic {
+              ... on TopicPrimary {
                 title
                 url
               }
-              ... on TopicSecondary{
+              ... on TopicSecondary {
                 title
                 url
               }
-              ... on TopicTertiary{
+              ... on TopicTertiary {
                 title
                 url
               }

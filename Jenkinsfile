@@ -52,7 +52,7 @@ pipeline {
           emailext(attachLog: true, mimeType: 'text/html',
                 body: '<h1>Aborted</h1><h1>This build is aborted by you or someone!</h1>',
                 subject: "[Jenkins][Smoke Test] '${env.JOB_NAME}' #'${env.BUILD_NUMBER}' - Aborted!",
-                to: 'ha.hoang@xpondigital.com, duyen.dao@xpondigital.com')
+                to: 'ha.hoang@xpondigital.com')
         }
   }
 }

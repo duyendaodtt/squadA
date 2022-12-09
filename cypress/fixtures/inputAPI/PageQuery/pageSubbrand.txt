@@ -1,320 +1,70 @@
 query {
-  page_subbrand (
-    limit: 30
-  	page: 1
-  	sort: newest
-    where:{
-      url:"/subbrand"
-    }
-  ){
-     items{
-      __typename
-      ... on Article {
-        title
-        url
-        summary
-        publishedDate
-        body
-        featuredImageGroup{
-          imageAltText
-          featuredImage{url}
-        }
-        contributor{
-          contributorName
-          contributorImage{
-            image{url}
-          }
-        }
-				topicSelector{
-          mainTopic{
-            ... on TopicPrimary{
+        page_subbrand(where: { url: "/subbrand" }) {
+          meta {
+            entry {
               title
               url
+              subbrandLogoGroup{
+                subbrandImage{url}
+                subbrandImageAltText
+              }
             }
-            ... on TopicSecondary{
-              title
-              url
-            }
-            ... on TopicTertiary{
-              title
-              url
+            pagination {
+              limit
+              page
+              total
+              totalPage
             }
           }
-          additionalTopics{
-            ... on TopicPrimary{
+          items {
+            ... on Article {
               title
               url
+              readTime
+              publishedDate
+              summary
+              featuredImageGroup{featuredImage{url}}
             }
-            ... on TopicSecondary{
+            ... on Document {
               title
               url
+              readTime
+              publishedDate
+              summary
+              featuredImageGroup{featuredImage{url}}
             }
-            ... on TopicTertiary{
+            ... on Podcast {
               title
               url
+              readTime
+              publishedDate
+              summary
+              featuredImageGroup{featuredImage{url}}
             }
-          }
-        }
-      }
-     ... on Document {
-        title
-        url
-        summary
-        publishedDate
-        body
-        featuredImageGroup{
-          imageAltText
-          featuredImage{url}
-        }
-        contributor{
-          contributorName
-          contributorImage{
-            image{url}
-          }
-        }
-				topicSelector{
-          mainTopic{
-            ... on TopicPrimary{
+            ... on Video {
               title
               url
+              readTime
+              publishedDate
+              summary
+              featuredImageGroup{featuredImage{url}}
             }
-            ... on TopicSecondary{
+            ... on Slideshow {
               title
               url
+              readTime
+              publishedDate
+              summary
+              featuredImageGroup{featuredImage{url}}
             }
-            ... on TopicTertiary{
+            ... on Webinar {
               title
               url
-            }
-          }
-          additionalTopics{
-            ... on TopicPrimary{
-              title
-              url
-            }
-            ... on TopicSecondary{
-              title
-              url
-            }
-            ... on TopicTertiary{
-              title
-              url
+              readTime
+              publishedDate
+              summary
+              featuredImageGroup{featuredImage{url}}
             }
           }
         }
-      }
-     ... on Webinar {
-        title
-        url
-        summary
-        publishedDate
-        body
-        featuredImageGroup{
-          imageAltText
-          featuredImage{url}
-        }
-        contributor{
-          contributorName
-          contributorImage{
-            image{url}
-          }
-        }
-				topicSelector{
-          mainTopic{
-            ... on TopicPrimary{
-              title
-              url
-            }
-            ... on TopicSecondary{
-              title
-              url
-            }
-            ... on TopicTertiary{
-              title
-              url
-            }
-          }
-          additionalTopics{
-            ... on TopicPrimary{
-              title
-              url
-            }
-            ... on TopicSecondary{
-              title
-              url
-            }
-            ... on TopicTertiary{
-              title
-              url
-            }
-          }
-        }
-      }
-     ... on Podcast {
-        title
-        url
-        summary
-        publishedDate
-        body
-        featuredImageGroup{
-          imageAltText
-          featuredImage{url}
-        }
-        contributor{
-          contributorName
-          contributorImage{
-            image{url}
-          }
-        }
-				topicSelector{
-          mainTopic{
-            ... on TopicPrimary{
-              title
-              url
-            }
-            ... on TopicSecondary{
-              title
-              url
-            }
-            ... on TopicTertiary{
-              title
-              url
-            }
-          }
-          additionalTopics{
-            ... on TopicPrimary{
-              title
-              url
-            }
-            ... on TopicSecondary{
-              title
-              url
-            }
-            ... on TopicTertiary{
-              title
-              url
-            }
-          }
-        }
-      }
-     ... on Slideshow {
-        title
-        url
-        summary
-        publishedDate
-        body
-        featuredImageGroup{
-          imageAltText
-          featuredImage{url}
-        }
-        contributor{
-          contributorName
-          contributorImage{
-            image{url}
-          }
-        }
-				topicSelector{
-          mainTopic{
-            ... on TopicPrimary{
-              title
-              url
-            }
-            ... on TopicSecondary{
-              title
-              url
-            }
-            ... on TopicTertiary{
-              title
-              url
-            }
-          }
-          additionalTopics{
-            ... on TopicPrimary{
-              title
-              url
-            }
-            ... on TopicSecondary{
-              title
-              url
-            }
-            ... on TopicTertiary{
-              title
-              url
-            }
-          }
-        }
-      }
-      ... on Video {
-        title
-        url
-        summary
-        publishedDate
-        body
-        featuredImageGroup{
-          imageAltText
-          featuredImage{url}
-        }
-        contributor{
-          contributorName
-          contributorImage{
-            image{url}
-          }
-        }
-				topicSelector{
-          mainTopic{
-            ... on TopicPrimary{
-              title
-              url
-            }
-            ... on TopicSecondary{
-              title
-              url
-            }
-            ... on TopicTertiary{
-              title
-              url
-            }
-          }
-          additionalTopics{
-            ... on TopicPrimary{
-              title
-              url
-            }
-            ... on TopicSecondary{
-              title
-              url
-            }
-            ... on TopicTertiary{
-              title
-              url
-            }
-          }
-        }
-      }
-    }
-    meta {
-      entry {
-        title
-        uid
-        locale
-        seo{
-          canonicalUrl
-          metaDescription
-          metaTitle
-          noIndex
-        }
-        subbrandLogoGroup{
-          subbrandImage {url}
-          subbrandImageAltText
-        }
-        url
-      }
-      pagination {
-        limit
-        page
-        total
-        totalPage
-      }
-    }
-  }
-}
+      }     

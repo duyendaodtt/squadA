@@ -1,5 +1,5 @@
 query {
-        page_basic(url: "/about-us-1") {
+        page_basic(url: "/about") {
           content {
             title
             body

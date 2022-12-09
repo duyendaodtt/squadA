@@ -1,346 +1,194 @@
-query Topic{
+query {
   page_topic(
-    sort: oldest
-    where: {
-    url:"/crops"}
-  ){
-    items{
-      __typename
+    limit: 30
+    page: 1
+    sort: newest
+    where: { url: "/parenttopic-primary" }
+  ) {
+    meta {
+      pagination {
+        limit
+        page
+        total
+        totalPage
+      }
+      entry {
+        ... on TopicPrimary {
+          title
+          url
+          createdAt
+          contentTypeUid
+        }
+        ... on TopicSecondary {
+          title
+          url
+        }
+        ... on TopicTertiary {
+          title
+          url
+        }
+      }
+    }
+    items {
       ... on Article {
         title
+        uid
         url
         summary
+        readTime
         publishedDate
-        body
-        featuredImageGroup{
-          imageAltText
-          featuredImage{url}
+        createdAt
+        featuredImageGroup {
+          featuredImage {
+            url
+          }
+          featuredImageCredit
+          featuredImageCaption
         }
-        contributor{
+        contributor {
           contributorName
-          contributorImage{
-            image{url}
-          }
-        }
-				topicSelector{
-          mainTopic{
-            ... on TopicPrimary{
-              title
+          contributorImage {
+            image {
               url
             }
-            ... on TopicSecondary{
-              title
-              url
-            }
-            ... on TopicTertiary{
-              title
-              url
-            }
-          }
-          additionalTopics{
-            ... on TopicPrimary{
-              title
-              url
-            }
-            ... on TopicSecondary{
-              title
-              url
-            }
-            ... on TopicTertiary{
-              title
-              url
-            }
-          }
-        }
-      }
-     ... on Document {
-        title
-        url
-        summary
-        publishedDate
-        body
-        featuredImageGroup{
-          imageAltText
-          featuredImage{url}
-        }
-        contributor{
-          contributorName
-          contributorImage{
-            image{url}
-          }
-        }
-				topicSelector{
-          mainTopic{
-            ... on TopicPrimary{
-              title
-              url
-            }
-            ... on TopicSecondary{
-              title
-              url
-            }
-            ... on TopicTertiary{
-              title
-              url
-            }
-          }
-          additionalTopics{
-            ... on TopicPrimary{
-              title
-              url
-            }
-            ... on TopicSecondary{
-              title
-              url
-            }
-            ... on TopicTertiary{
-              title
-              url
-            }
-          }
-        }
-      }
-     ... on Webinar {
-        title
-        url
-        summary
-        publishedDate
-        body
-        featuredImageGroup{
-          imageAltText
-          featuredImage{url}
-        }
-        contributor{
-          contributorName
-          contributorImage{
-            image{url}
-          }
-        }
-				topicSelector{
-          mainTopic{
-            ... on TopicPrimary{
-              title
-              url
-            }
-            ... on TopicSecondary{
-              title
-              url
-            }
-            ... on TopicTertiary{
-              title
-              url
-            }
-          }
-          additionalTopics{
-            ... on TopicPrimary{
-              title
-              url
-            }
-            ... on TopicSecondary{
-              title
-              url
-            }
-            ... on TopicTertiary{
-              title
-              url
-            }
-          }
-        }
-      }
-     ... on Podcast {
-        title
-        url
-        summary
-        publishedDate
-        body
-        featuredImageGroup{
-          imageAltText
-          featuredImage{url}
-        }
-        contributor{
-          contributorName
-          contributorImage{
-            image{url}
-          }
-        }
-				topicSelector{
-          mainTopic{
-            ... on TopicPrimary{
-              title
-              url
-            }
-            ... on TopicSecondary{
-              title
-              url
-            }
-            ... on TopicTertiary{
-              title
-              url
-            }
-          }
-          additionalTopics{
-            ... on TopicPrimary{
-              title
-              url
-            }
-            ... on TopicSecondary{
-              title
-              url
-            }
-            ... on TopicTertiary{
-              title
-              url
-            }
-          }
-        }
-      }
-     ... on Slideshow {
-        title
-        url
-        summary
-        publishedDate
-        body
-        featuredImageGroup{
-          imageAltText
-          featuredImage{url}
-        }
-        contributor{
-          contributorName
-          contributorImage{
-            image{url}
-          }
-        }
-				topicSelector{
-          mainTopic{
-            ... on TopicPrimary{
-              title
-              url
-            }
-            ... on TopicSecondary{
-              title
-              url
-            }
-            ... on TopicTertiary{
-              title
-              url
-            }
-          }
-          additionalTopics{
-            ... on TopicPrimary{
-              title
-              url
-            }
-            ... on TopicSecondary{
-              title
-              url
-            }
-            ... on TopicTertiary{
-              title
-              url
-            }
+            imageAltText
           }
         }
       }
       ... on Video {
         title
+        uid
         url
         summary
+        readTime
         publishedDate
-        body
-        featuredImageGroup{
-          imageAltText
-          featuredImage{url}
+        featuredImageGroup {
+          featuredImage {
+            url
+          }
+          featuredImageCredit
+          featuredImageCaption
         }
-        contributor{
+        contributor {
           contributorName
-          contributorImage{
-            image{url}
+          contributorImage {
+            image {
+              url
+            }
+            imageAltText
           }
         }
-				topicSelector{
-          mainTopic{
-            ... on TopicPrimary{
-              title
-              url
-            }
-            ... on TopicSecondary{
-              title
-              url
-            }
-            ... on TopicTertiary{
-              title
-              url
-            }
+        video {
+          duration {
+            duration
           }
-          additionalTopics{
-            ... on TopicPrimary{
-              title
-              url
-            }
-            ... on TopicSecondary{
-              title
-              url
-            }
-            ... on TopicTertiary{
-              title
-              url
-            }
-          }
+          videoId
+          videoCredit
+          videoService
         }
       }
-    }
-    meta{
-      pagination{
-        total
-        totalPage
+      ... on Webinar {
+        title
+        uid
+        url
+        summary
+        readTime
+        publishedDate
+        featuredImageGroup {
+          featuredImage {
+            url
+          }
+          featuredImageCredit
+          featuredImageCaption
+        }
+        contributor {
+          contributorName
+          contributorImage {
+            image {
+              url
+            }
+            imageAltText
+          }
+        }
+        webinarGroup {
+          webinarId
+          webinarUrl
+          webinarService
+          webinarStartDateAndTime
+        }
       }
-      entry{
-        __typename
-        ... on TopicPrimary{
-          title
-          url
-          topicPageDescription
-          seo{
-            metaTitle
-            metaDescription
-            canonicalUrl
-            noIndex
+      ... on Podcast {
+        title
+        uid
+        url
+        summary
+        readTime
+        publishedDate
+        featuredImageGroup {
+          featuredImage {
+            url
           }
-        
+          featuredImageCredit
+          featuredImageCaption
         }
-        ... on TopicSecondary{
-          title
-          topicPageDescription
-          url
-          tertiaryTopics{
-            title
-            url
-          }
-          parentTopic{
-            title
-            url
-          }
-          seo{
-            metaTitle
-            metaDescription
-            canonicalUrl
-            noIndex
+        contributor {
+          contributorName
+          contributorImage {
+            image {
+              url
+            }
+            imageAltText
           }
         }
-        ... on TopicTertiary{
-          title
-          url
-          topicPageDescription
-           parentTopic{
-            title
+        podcast {
+          duration {
+            duration
+          }
+          podcastId
+          podcastLink
+          podcastService
+        }
+      }
+      ... on Document {
+        title
+        uid
+        url
+        readTime
+        summary
+        publishedDate
+        featuredImageGroup {
+          featuredImage {
             url
           }
-          seo{
-            metaTitle
-            metaDescription
-            canonicalUrl
-            noIndex
+          featuredImageCredit
+          featuredImageCaption
+        }
+        contributor {
+          contributorName
+          contributorImage {
+            image {
+              url
+            }
+            imageAltText
           }
+        }
+        document {
+          materialUrl
+          materialTitle
+        }
+      }
+      ... on Slideshow {
+        title
+        uid
+        url
+        readTime
+        publishedDate
+        featuredImageGroup {
+          featuredImage {
+            url
+          }
+          featuredImageCredit
+          featuredImageCaption
         }
       }
     }

@@ -1,128 +1,116 @@
 query {
-  all_webinar {
-    meta {
-      total
-    }
-    items {
-      uid
-      title
-      mobileHeadline
-      url
-      publishedDate
-      summary
-      body
-      bodyJson
-      updatedAt
-      updatedBy
-      createdAt
-      createdBy
-      contentTypeUid
-      contributor {
-        title
-        uid
-        url
-        userRoles
-        contributorName
-        contributorDescription
-        contributorRole
-        contributorImage {
-          image {
-            url
-          }
-          imageAltText
-        }
-      }
-      contentFormat {
-        title
-        uid
-        pageDescription
-        updatedAt
-        updatedBy
-        url
-        locale
-      }
-      featuredImageGroup {
-        featuredImage {
-          url
-        }
-        featuredImageCredit
-        featuredImageCaption
-      }
-      atAGlance {
-        shortGlanceVersions
-      }
-      topicSelector {
-        mainTopic {
-          __typename
-          ... on TopicPrimary {
-            title
-            url
-          }
-          ... on TopicSecondary {
-            title
-            url
-          }
-          ... on TopicTertiary {
-            title
-            url
-          }
-        }
-        additionalTopics {
-          ... on TopicPrimary {
-            title
-          }
-          ... on TopicSecondary {
-            title
-          }
-          ... on TopicTertiary {
-            title
-          }
-        }
-      }
-      subbrand {
-        title
-        locale
-        uid
-        url
-        subbrandLogoGroup {
-          subbrandImage {
-            url
-          }
-          subbrandImageAltText
-        }
-      }
-      keywords {
-        keywordBranding {
-          keywordBrandingLogo {
-            url
-          }
-          keywordBrandingColor
-          keywordBrandingLogoAltText
-          keywordBrandingDescriptionWithHyperlink
-        }
-        keywordDescription
-        keywordDisplayOptions
-        keywordSponsorReference {
-          summary
+      all_webinar {
+        items {
           title
-          uid
+          readTime
           publishedDate
-          sponsorUrl
+          mobileHeadline
+          contentFormat {
+            title
+            pageDescription
+            seo {
+              metaTitle
+              metaDescription
+            }
+            url
+          }
+          contributor {
+            title
+            contributorName
+            contributorImage {
+              image {
+                url
+              }
+            }
+            contributorRole
+            contributorCompanyName
+          }
+          summary
+          summaryJson
+          atAGlance {
+            shortGlanceVersions
+          }
+          body
+          featuredImageGroup {
+            featuredImage {
+              url
+            }
+            featuredImageCredit
+            featuredImageCaption
+            imageAltText
+          }
+          keywords {
+            title
+          }
+          subbrand {
+            title
+          }
+          sponsorshipGatingGroup {
+            sponsorshipGatingSponsorFlag
+          }
+          relatedEvents {
+            title
+            uid
+          }
+          seo {
+            metaTitle
+            metaDescription
+            canonicalUrl
+          }
+          publishedDate
+          url
+          
+          
+          topicSelector {
+            mainTopic {
+              ... on TopicPrimary {
+                uid
+                title
+                url
+              }
+              ... on TopicSecondary {
+                uid
+                title
+                url
+              }
+            }
+            additionalTopics {
+              ... on TopicPrimary {
+                uid
+                title
+                url
+              }
+              ... on TopicSecondary {
+                uid
+                title
+                url
+              }
+              ... on TopicTertiary {
+                uid
+                title
+                url
+              }
+            }
+          }
+          seriesTaxonomy {
+            title
+            uid
+            createdAt
+          }
+          speaker {
+            title
+            contributorName
+            contributorImage {
+              image {
+                url
+              }
+            }
+            contributorRole
+            contributorCompanyName
+          }
+        }
+        meta {
+          total
         }
       }
-      seo {
-        metaTitle
-        metaDescription
-        canonicalUrl
-        noIndex
-      }
-      webinarGroup{
-        duration{duration}
-        webinarTimezone
-        on24WebinarEventId
-        webinarMaterialUrl
-        webinarStartDateAndTime
-      }
     }
-  }
-}

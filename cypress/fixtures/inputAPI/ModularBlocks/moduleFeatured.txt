@@ -1,57 +1,60 @@
 query {
-  all_module_featured(
-    where: { uidIn: ["blt8c2990d6b72c1e07", "blt71864c3fe8030df9"] }
-  ) {
-    entries {
-      meta {
-        entry {
-          title
-          moduleDisplayOption
+        all_module_featured(where: {
+          uidIn: ["bltb6cf6e0cf4bc8d9d"]
+        }) {
+          entries {
+            latest {
+              __typename
+            }
+            featured {
+              __typename
+            }
+            meta {
+              total
+              entry {
+                title
+                uid
+                adConfiguration{
+                  displayAdOption
+                }
+                moduleDisplayOption
+                recentSection {
+                  sectionLabel
+                  ctaButton {
+                    ctaButtonLink{
+                      ...on TopicPrimary{
+                        uid
+                      }
+                    }
+                    ctaButtonText
+                  }
+                  sectionLabel
+                  dynamicRecentContent {
+                    bySeries {
+                      uid
+                      contentTypeUid
+                    }
+                    byTopics {
+                      uid
+                      contentTypeUid
+                    }
+                    byContentTypes
+                    byKeywords {
+                      uid
+                      contentTypeUid
+                    }
+                    byContentFormat {
+                      uid
+                      contentTypeUid
+                    }
+                  }
+                }
+                featuredContent {
+                  uid
+                  contentTypeUid
+                }
+              }
+            }
+          }
         }
-        total
       }
-      featured {
-        __typename
-        ... on Article {
-          title
-        }
-        ... on Document {
-          title
-        }
-        ... on Podcast {
-          title
-        }
-        ... on Slideshow {
-          title
-        }
-        ... on Video {
-          title
-        }
-        ... on Webinar {
-          title
-        }
-      }
-      latest {
-        __typename
-        ... on Article {
-          title
-        }
-        ... on Document {
-          title
-        }
-        ... on Podcast {
-          title
-        }
-        ... on Slideshow {
-          title
-        }
-        ... on Video {
-          title
-        }
-        ... on Webinar {
-          title
-        }
-      }
-    }
-  }
-}

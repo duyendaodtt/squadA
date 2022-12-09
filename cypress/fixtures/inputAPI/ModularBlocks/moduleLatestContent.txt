@@ -1,275 +1,129 @@
 query {
-  all_module_latest_content(
-    where:{
-      uidIn:["bltc10bda8c8bbcbd86", "blt3954aaa800e4f5cd"]
-    }
-  ) {
-    entries{
-      meta{
-        entry{
-          title
-        __typename
-        }
-      }
-      items{
-        itemsLatestSection1{
-          __typename
-          ... on Article{
-          title
-          summary
-          url
-          readTime
-          featuredImageGroup{
-            featuredImage{url}
-          }
-           topicSelector{
-            mainTopic{
-              ... on TopicPrimary{
+        all_module_latest_content(
+          where: { uid: "blt3954aaa800e4f5cd"}
+        ) {
+          entries {
+            meta {
+              entry {
+                adConfiguration{
+                  displayAdOption
+                  nativeAdOption
+                }
+                uid
                 title
-                url
+                latestSection1 {
+                  sectionLabel
+                  dynamicRecentContent {
+                    byContentTypes
+                    byTopics {
+                      uid
+                      url
+                      contentTypeUid
+                    }
+                    byKeywords {
+                      contentTypeUid
+                      uid
+                      url
+                    }
+                    byContentFormat {
+                      contentTypeUid
+                      uid
+                      url
+                    }
+                    bySeries {
+                      contentTypeUid
+                      url
+                      uid
+                    }
+                  }
+                  ctaButton {
+                    ctaButtonUrl
+                    ctaButtonText
+                  }
+                }
+                latestSection2 {
+                  sectionLabel
+                  dynamicRecentContent {
+                    byContentTypes
+                    byTopics {
+                      uid
+                      url
+                      contentTypeUid
+                    }
+                    byKeywords {
+                      url
+                      contentTypeUid
+                    }
+                    byContentFormat {
+                      url
+                      contentTypeUid
+                    }
+                    bySeries {
+                      contentTypeUid
+                      url
+                      uid
+                    }
+                  }
+                  ctaButton {
+                    ctaButtonUrl
+                    ctaButtonText
+                  }
+                }
+                adConfiguration {
+                  nativeAdOption
+                  displayAdOption
+                }
               }
-              ... on TopicSecondary{
-                title
-                url
+      
+              totalLatestSection1
+              totalLatestSection2
+            }
+            items {
+              itemsLatestSection1 {
+                __typename
+                ... on Webinar {
+                  title
+                  url
+                  keywords {
+                    contentTypeUid
+                    uid
+                    title
+                  }
+                  seriesTaxonomy {
+                    contentTypeUid
+                    title
+                    url
+                  }
+                  contentFormat {
+                    contentTypeUid
+                    uid
+                    url
+                  }
+                }
               }
-              ... on TopicTertiary{
-                title
-                url
+              itemsLatestSection2 {
+                __typename
+                ... on Article {
+                  title
+                  url
+                  keywords {
+                    contentTypeUid
+                    uid
+                    title
+                  }
+                  seriesTaxonomy {
+                    contentTypeUid
+                    title
+                    url
+                  }
+                  contentFormat {
+                    contentTypeUid
+                    uid
+                    url
+                  }
+                }
               }
             }
-          }
-        }
-           ... on Document{
-          title
-          summary
-          url
-          readTime
-          featuredImageGroup{
-            featuredImage{url}
-          }
-           topicSelector{
-            mainTopic{
-              ... on TopicPrimary{
-                title
-                url
-              }
-              ... on TopicSecondary{
-                title
-                url
-              }
-              ... on TopicTertiary{
-                title
-                url
-              }
-            }
-          }
-        }
-         ... on Event{
-          title
-          eventDescription
-          url
-          eventDetails{
-            endDate
-            startDate
-            eventUrl
-            eventLogo{ 
-            	logoFile{url}
-            	eventLogoAlt
-            }
-            eventType
-            buttons{
-              buttonLink
-              buttonName
-            }
-          }
-        }
-        ... on ExternalLink{
-          title
-          summary
-          url
-          topicSelector{
-            mainTopic{
-              ... on TopicPrimary{
-                title
-                url
-              }
-              ... on TopicSecondary{
-                title
-                url
-              }
-              ... on TopicTertiary{
-                title
-                url
-              }
-            }
-          }
-        }
-          ... on Magazine{
-          title
-          summary
-          url
-          readTime
-          featuredImageGroup{
-            featuredImage{url}
-          }
-           topicSelector{
-            mainTopic{
-              ... on TopicPrimary{
-                title
-                url
-              }
-              ... on TopicSecondary{
-                title
-                url
-              }
-              ... on TopicTertiary{
-                title
-                url
-              }
-            }
-          }
-        }
-           ... on Podcast{
-          title
-          summary
-          url
-          readTime
-          featuredImageGroup{
-            featuredImage{url}
-          }
-           topicSelector{
-            mainTopic{
-              ... on TopicPrimary{
-                title
-                url
-              }
-              ... on TopicSecondary{
-                title
-                url
-              }
-              ... on TopicTertiary{
-                title
-                url
-              }
-            }
-          }
-        }
-           ... on Slideshow{
-          title
-          summary
-          url
-          readTime
-          featuredImageGroup{
-            featuredImage{url}
-          }
-           topicSelector{
-            mainTopic{
-              ... on TopicPrimary{
-                title
-                url
-              }
-              ... on TopicSecondary{
-                title
-                url
-              }
-              ... on TopicTertiary{
-                title
-                url
-              }
-            }
-          }
-        }
-           ... on Video{
-          title
-          summary
-          url
-          readTime
-          featuredImageGroup{
-            featuredImage{url}
-          }
-           topicSelector{
-            mainTopic{
-              ... on TopicPrimary{
-                title
-                url
-              }
-              ... on TopicSecondary{
-                title
-                url
-              }
-              ... on TopicTertiary{
-                title
-                url
-              }
-            }
-          }
-        }
-           ... on Webinar{
-          title
-          summary
-          url
-          readTime
-          featuredImageGroup{
-            featuredImage{url}
-          }
-           topicSelector{
-            mainTopic{
-              ... on TopicPrimary{
-                title
-                url
-              }
-              ... on TopicSecondary{
-                title
-                url
-              }
-              ... on TopicTertiary{
-                title
-                url
-              }
-            }
-          }
-        }
-        }
-        itemsLatestSection2{
-          __typename
-          ... on Article{
-            title
-            url
-          }
-          ... on Document{
-            title
-            url
-          }
-          ... on Event{
-            title
-            url
-          }
-          ... on ExternalLink{
-            title
-            url
-          }
-          ... on Magazine{
-            title
-            url
-          }
-          ... on Podcast{
-            title
-            uid
-          }
-          ... on Slideshow{
-            title
-            uid
-          }
-          ... on Video{
-            title
-            url
-          }
-          ... on Webinar{
-            title
-            url
           }
         }
       }
-    }
-  }
-}

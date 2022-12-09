@@ -17,6 +17,11 @@
         "pageContent": "all_event"
     },
     {
+        "contentType": "All External Links",
+       "queryBody": "CoreContentType/queryAllExternalLink.txt",
+        "pageContent": "all_external_link"
+    },
+    {
         "contentType": "All Webinar",
        "queryBody": "CoreContentType/queryAllWebinars.txt",
         "pageContent": "all_webinar"

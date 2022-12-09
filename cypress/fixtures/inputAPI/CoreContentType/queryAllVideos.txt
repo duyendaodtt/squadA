@@ -1,119 +1,104 @@
 query {
-  all_video{
-    meta {
-      total
-    }
-    items {
-      uid
-      title
-      mobileHeadline
-      url
-      publishedDate
-      summary
-      body
-      bodyJson
-      updatedAt
-      updatedBy
-      createdAt
-      createdBy
-			topicSelector {
-        mainTopic {
-          __typename
-          ... on TopicPrimary {
+        all_video {
+          items {
             title
+            readTime
+            publishedDate
+            mobileHeadline
+            contentFormat {
+              __typename
+            }
+            contributor {
+              __typename
+            }
+            summary
+            summaryJson
+            atAGlance {
+              shortGlanceVersions
+            }
+            body
+            bodyJson
+            relatedInlineContent {
+              relatedItem {
+                __typename
+              }
+            }
+            featuredImageGroup {
+              featuredImage {
+                url
+              }
+            }
+            
+            topicSelector {
+              mainTopic {
+                ... on TopicPrimary {
+                  uid
+                  title
+                  url
+                }
+                ... on TopicSecondary {
+                  uid
+                  title
+                  url
+                }
+              }
+              additionalTopics {
+                ... on TopicPrimary {
+                  uid
+                  title
+                  url
+                }
+                ... on TopicSecondary {
+                  uid
+                  title
+                  url
+                }
+                ... on TopicTertiary {
+                  uid
+                  title
+                  url
+                }
+              }
+            }
+            seriesTaxonomy {
+              title
+              uid
+              createdAt
+            }
+            keywords {
+              keywordDescription
+            }
+            subbrand {
+              __typename
+            }
+            sponsorshipGatingGroup {
+              sponsorshipGatingSponsorFlag
+              sponsorshipGatingExternalFormId
+              sponsorshipGatingGateExternalFieldFlag
+              sponsorshipGatingGateRegFlag
+              sponsorshipGatingSponsorReference {
+                __typename
+              }
+            }
+            relatedEvents {
+              title
+              uid
+            }
+            seo {
+              metaTitle
+              metaDescription
+              canonicalUrl
+              noIndex
+            }
             url
-          }
-          ... on TopicSecondary {
-            title
-            url
-          }
-          ... on TopicTertiary {
-            title
-            url
-          }
-        }
-        additionalTopics {
-          ... on TopicPrimary {
-            title
-          }
-          ... on TopicSecondary {
-            title
-          }
-          ... on TopicTertiary {
-            title
+            video {
+              videoId
+              videoService
+              videoCredit
+              duration {
+                duration
+              }
+            }
           }
         }
       }
-      contributor {
-        title
-   
-        contributorRole
-        contributorImage {
-          image {
-            url
-          }
-          imageAltText
-        }
-      }
-      contentFormat {
-        title
-        uid
-        pageDescription
-        updatedAt
-        updatedBy
-        url
-        locale
-      }
-      featuredImageGroup {
-        featuredImage {
-          url
-        }
-        featuredImageCredit
-        featuredImageCaption
-      }
-      atAGlance {
-        shortGlanceVersions
-      }
-
-      keywords {
-        keywordBranding {
-          keywordBrandingLogo {
-            url
-          }
-          keywordBrandingColor
-          keywordBrandingLogoAltText
-          keywordBrandingDescriptionWithHyperlink
-        }
-        keywordDescription
-        keywordDisplayOptions
-        keywordSponsorReference {
-          summary
-          title
-          uid
-          publishedDate
-          sponsorUrl
-        }
-      }
-      seo{
-        canonicalUrl
-        metaDescription
-        metaTitle
-        noIndex
-      }
-      relatedInlineContent {
-        relatedItem {
-          contentTypeUid
-          uid
-          title
-          url
-        }
-      }
-      video{
-        duration{duration}
-        videoCredit
-        videoId
-        videoService
-      }
-    }
-  }
-}

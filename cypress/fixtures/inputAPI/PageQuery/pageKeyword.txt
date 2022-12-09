@@ -1,337 +1,85 @@
-query KeywordPage{
-  page_keyword(
-    limit:300
-    page:1
-    sort: oldest
-    where:{
-      url: "/keyword/world-agricultural-supply-and-demand-estimates"
-    }
-  ){
-    meta{
-      pagination{
-        limit 
-        page
-        total
-        totalPage
-      }
-      entry{
-        title
-        url
-        modules{
-          moduleBlocks{
-            title
-            uid
-          }
-        }
-        locale
-        keywordBranding{
-          keywordBrandingLogo{
-            url
-          }
-          keywordBrandingColor
-          keywordBrandingLogoAltText
-          keywordBrandingDescriptionWithHyperlink
-        }
-        keywordDescription
-        keywordDisplayOptions
-        keywordSponsorReference{
-          title
-          url
-          summary
-          sponsorUrl
-        }
-        seo{
-          metaTitle
-          metaDescription
-          canonicalUrl
-          noIndex
-        }
-      }
-    }
-     items{
-      __typename
-      ... on Article {
-        title
-        url
-        summary
-        publishedDate
-        body
-        featuredImageGroup{
-          imageAltText
-          featuredImage{url}
-        }
-        contributor{
-          contributorName
-          contributorImage{
-            image{url}
-          }
-        }
-				topicSelector{
-          mainTopic{
-            ... on TopicPrimary{
-              title
-              url
+query {
+        page_keyword(where: { url: "/keyword/youth" }, limit: 30, page: 1, sort: newest) {
+          meta {
+            pagination {
+              total
+              totalPage
+              page
+              limit
             }
-            ... on TopicSecondary{
+            entry {
               title
+              contentTypeUid
               url
-            }
-            ... on TopicTertiary{
-              title
-              url
+              createdAt
+              createdBy
             }
           }
-          additionalTopics{
-            ... on TopicPrimary{
+      
+          items {
+            ... on Article {
               title
+              readTime
+              publishedDate
               url
+              uid
+              summary
+              summaryJson
+              featuredImageGroup{
+                featuredImage{
+                  url
+                }
+                featuredImageCaption
+                featuredImageCredit
+                imageAltText
+              }
+              contributor{
+                contributorName
+                contributorImage{
+                  image{url}
+                  imageAltText
+                }
+              }
+              topicSelector{
+                mainTopic{
+                  ... on TopicPrimary{url}
+                  ... on TopicSecondary{url}
+                  ... on TopicTertiary{url}
+                }
+              }
             }
-            ... on TopicSecondary{
+            ... on Document {
               title
+              readTime
+              publishedDate
               url
+              uid
             }
-            ... on TopicTertiary{
+            ... on Podcast {
               title
+              readTime
+              publishedDate
               url
+              uid
+            }
+            ... on Video {
+              title
+              readTime
+              publishedDate
+              url
+              uid
+            }      
+            ... on Slideshow {
+              title
+              readTime
+              publishedDate
+              url
+              uid
+            }
+            ... on Webinar {
+              title
+              publishedDate
             }
           }
         }
       }
-     ... on Document {
-        title
-        url
-        summary
-        publishedDate
-        body
-        featuredImageGroup{
-          imageAltText
-          featuredImage{url}
-        }
-        contributor{
-          contributorName
-          contributorImage{
-            image{url}
-          }
-        }
-				topicSelector{
-          mainTopic{
-            ... on TopicPrimary{
-              title
-              url
-            }
-            ... on TopicSecondary{
-              title
-              url
-            }
-            ... on TopicTertiary{
-              title
-              url
-            }
-          }
-          additionalTopics{
-            ... on TopicPrimary{
-              title
-              url
-            }
-            ... on TopicSecondary{
-              title
-              url
-            }
-            ... on TopicTertiary{
-              title
-              url
-            }
-          }
-        }
-      }
-     ... on Webinar {
-        title
-        url
-        summary
-        publishedDate
-        body
-        featuredImageGroup{
-          imageAltText
-          featuredImage{url}
-        }
-        contributor{
-          contributorName
-          contributorImage{
-            image{url}
-          }
-        }
-				topicSelector{
-          mainTopic{
-            ... on TopicPrimary{
-              title
-              url
-            }
-            ... on TopicSecondary{
-              title
-              url
-            }
-            ... on TopicTertiary{
-              title
-              url
-            }
-          }
-          additionalTopics{
-            ... on TopicPrimary{
-              title
-              url
-            }
-            ... on TopicSecondary{
-              title
-              url
-            }
-            ... on TopicTertiary{
-              title
-              url
-            }
-          }
-        }
-      }
-     ... on Podcast {
-        title
-        url
-        summary
-        publishedDate
-        body
-        featuredImageGroup{
-          imageAltText
-          featuredImage{url}
-        }
-        contributor{
-          contributorName
-          contributorImage{
-            image{url}
-          }
-        }
-				topicSelector{
-          mainTopic{
-            ... on TopicPrimary{
-              title
-              url
-            }
-            ... on TopicSecondary{
-              title
-              url
-            }
-            ... on TopicTertiary{
-              title
-              url
-            }
-          }
-          additionalTopics{
-            ... on TopicPrimary{
-              title
-              url
-            }
-            ... on TopicSecondary{
-              title
-              url
-            }
-            ... on TopicTertiary{
-              title
-              url
-            }
-          }
-        }
-      }
-     ... on Slideshow {
-        title
-        url
-        summary
-        publishedDate
-        body
-        featuredImageGroup{
-          imageAltText
-          featuredImage{url}
-        }
-        contributor{
-          contributorName
-          contributorImage{
-            image{url}
-          }
-        }
-				topicSelector{
-          mainTopic{
-            ... on TopicPrimary{
-              title
-              url
-            }
-            ... on TopicSecondary{
-              title
-              url
-            }
-            ... on TopicTertiary{
-              title
-              url
-            }
-          }
-          additionalTopics{
-            ... on TopicPrimary{
-              title
-              url
-            }
-            ... on TopicSecondary{
-              title
-              url
-            }
-            ... on TopicTertiary{
-              title
-              url
-            }
-          }
-        }
-      }
-      ... on Video {
-        title
-        url
-        summary
-        publishedDate
-        body
-        featuredImageGroup{
-          imageAltText
-          featuredImage{url}
-        }
-        contributor{
-          contributorName
-          contributorImage{
-            image{url}
-          }
-        }
-				topicSelector{
-          mainTopic{
-            ... on TopicPrimary{
-              title
-              url
-            }
-            ... on TopicSecondary{
-              title
-              url
-            }
-            ... on TopicTertiary{
-              title
-              url
-            }
-          }
-          additionalTopics{
-            ... on TopicPrimary{
-              title
-              url
-            }
-            ... on TopicSecondary{
-              title
-              url
-            }
-            ... on TopicTertiary{
-              title
-              url
-            }
-          }
-        }
-      }
-    }
-  }
-}

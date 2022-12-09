@@ -1,17 +1,23 @@
 query {
-  all_module_event_promo(
-    where: { uidIn: ["bltcf558731c165bece", "bltd944d604f2f2f24b"] }
-  ) {
-    entries {
-      title
-      uid
-      background{
-        backgroundColor
-        backgroundImage{
-          url
+        all_module_event_promo(where: {
+          uid: "bltd944d604f2f2f24b",
+        }) {
+          entries {
+            __typename
+            title
+            uid
+            event {
+              __typename
+              title
+              url
+            }
+            background {
+              backgroundImage {
+                url
+              }
+              backgroundColor
+              backgroundImageAltText
+            }
+          }
         }
-        backgroundImageAltText
       }
-    }
-  }
-}

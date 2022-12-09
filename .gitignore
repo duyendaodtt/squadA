@@ -3,3 +3,5 @@ node_modules
 reports
 cypress/screenshots/queryCoreContent.cy.ts/Smoke test -- Query page content -- Query page content All Event -- And the items list should be not null (failed).png
 cypress/screenshots/queryCoreContent.cy.ts/Smoke test -- Query page content -- Query page content All Event -- And the items list should be not null (failed).png
+cypress/fixtures/UrlError/
+cypress/fixtures/UrlErrors/

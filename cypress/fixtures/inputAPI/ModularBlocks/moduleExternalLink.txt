@@ -1,19 +1,19 @@
 query {
-  all_module_external_link(
-    where: { uidIn: ["blt4833a03e3a8f01b4", "bltf024a475fe28fcd3"] }
-  ) {
-    entries {
-      title
-      contentTypeUid
-      ctaButton{
-        ctaButtonText
-        ctaButtonUrl
+      all_module_external_link(where: {
+        uid: "bltf024a475fe28fcd3"
+      }) {
+        entries {
+          contentTypeUid
+          ctaButton {
+            ctaButtonText
+            ctaButtonUrl
+          }
+          externalLinks {
+            title
+            url
+          }
+          moduleLabel
+          title
+        }
       }
-      externalLinks{
-        title
-        uid
-      }
-      moduleLabel
     }
-  }
-}

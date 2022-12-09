@@ -68,3 +68,26 @@ Cypress.Commands.add('verifyBodyNotNull', (contentType: string) => {
 
     })   
 });
+
+Cypress.Commands.add('verifyUrlShouldCorrect', (contentType: string) => {
+    var listErrors = [];
+    cy.task('getBody').then(resBody =>{    
+        const itemsArr = resBody.data[contentType].items;
+        itemsArr.forEach(item => {
+            
+            var count =  item.url.match(new RegExp("\/","g"))?.length;
+            if(count === 1){
+                var singleError = {}
+                singleError['ContentType'] = contentType;
+                singleError['Title'] = item.title;
+                singleError['URL'] = item.url;
+                listErrors.push(singleError);
+            }
+            //expect(count >= 2).true;
+        })
+        console.log(listErrors);
+        var today = new Date();
+        var time = today.getHours() + "-" + today.getMinutes() + "-" + today.getSeconds();
+        cy.writeFile(`cypress/fixtures/UrlErrors/${contentType}_${time}.json`, listErrors, { flag: 'a+' });
+    })
+});

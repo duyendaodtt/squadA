@@ -48,10 +48,23 @@ describe(`Query core content types`, () => {
               "publishedDate"
             );
           });
+          if(testData.pageContent !== "all_event" && testData.pageContent !== "all_external_link"){
+            it("readTime should not be empty", () => {
+              //apiExpected.verifyRequiredFieldNotNull(testData.pageContent, 'publishedDate');
+              cy.verifyRequiredFieldNotNull(
+                testData.pageContent,
+                "readTime"
+              );
+          });
+          }
         });
         it("And query not return error", () => {
           //apiExpected.verifyNoError(testData.pageContent);
           cy.verifyNoError(testData.pageContent);
+        });
+        it("And URL should have mainTopic", () => {
+          //apiExpected.verifyNoError(testData.pageContent);
+          cy.verifyUrlShouldCorrect(testData.pageContent);
         });
       });
     });

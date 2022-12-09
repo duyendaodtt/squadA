@@ -48,10 +48,17 @@ describe(`Query page content`, () => {
                 //pageContentExpected.verifyRequiredFieldNotNull(testData.pageContent,'title')
                 cy.pageContentRequiredFieldNotNull(testData.pageContent,'title')
             });
+            
             it("Published date should not be empty", () => {
                 //pageContentExpected.verifyRequiredFieldNotNull(testData.pageContent,'publishedDate')
                 cy.pageContentRequiredFieldNotNull(testData.pageContent,'publishedDate')
             });
+
+            it("Read time should not be empty", () => {
+              //pageContentExpected.verifyRequiredFieldNotNull(testData.pageContent,'publishedDate')
+              cy.pageContentRequiredFieldNotNull(testData.pageContent,'readTime')
+            });
+
           }
         });
         it("And query not return error", () => {

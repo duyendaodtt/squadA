@@ -1,0 +1,52 @@
+query {
+        all_module_weather(where: { uidIn: ["abc"] }) {
+          entries {
+            items {
+              zipCode
+              location
+              weatherType
+              currentCondition
+              currentConditionIcon
+              currentTemperature
+              currentPressure
+              feelsLike
+              windDirection
+              windSpeed
+              humidity
+              dewpoint
+              forecastedDay
+              forcastedPrecipitation
+              chancePrecipitationDay
+              chancePrecipitationNight
+              dewFrostWeight
+              hoursSun
+              soilMoisture
+              evaporation
+              dryingIndex
+              solarRadiation
+              livestockSafteyIndex
+              cumulativeHdd
+              cumulativeGdd
+              forecastDayCondition
+              forecastDayConditionIcon
+              forecastNightCondition
+              forecastNightConditionIcon
+              forecastHighTemperature
+              forecastLowTemperature
+              mapRegion
+              mapType
+              mapUrl
+              __typename
+            }
+            meta {
+              entry {
+                title
+                defaultZip
+              }
+            }
+          }
+          meta {
+            total
+          }
+        }
+      }

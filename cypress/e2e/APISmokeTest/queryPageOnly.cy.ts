@@ -40,6 +40,7 @@ describe(`Query page only`, () => {
           it("Title should not be empty", () => {
             //apiExpected.verifyRequiredFieldNotNull(testData.pageContent, 'title');
             cy.verifyRequiredFieldNotNull(testData.pageContent, "title");
+            
           });
         });
         it("And query not return error", () => {

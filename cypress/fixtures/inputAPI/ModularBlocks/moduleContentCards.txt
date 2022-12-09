@@ -1,7 +1,7 @@
 query{
   all_module_content_cards(
     where:{
-      uidIn:["blt4107eefc3c434bcc"]
+      uidIn:["bltaf065fd760aa045f"]
     }
   ){
     entries{
@@ -9,13 +9,59 @@ query{
         #total
         entry{
           title
+          adConfiguration{
+            displayAdOption
+            nativeAdOption
+          }
           contentDisplayOption
+          contentTypeUid
+          ctaButton{
+            ctaButtonLink
+            ctaButtonText
+          }
+          dynamicRecentContent{
+            byContentFormat{
+              url
+            }
+            byContentTypes
+            byKeywords{
+              contentTypeUid
+            }
+            bySeries{
+              contentTypeUid
+              url
+            }
+            byTopics{
+              url
+            }
+            dynamicLimit
+          }
+          manualCuratedContentGroup{
+            manualCuratedContent{
+              contentTypeUid
+              uid
+            }
+            manualCuratedContentLimit
+          }
+          settingOption
         }
       }
       items{
         __typename
         ... on Article{
           title
+          summary
+          publishedDate
+          readTime
+          url
+          topicSelector{
+            mainTopic{
+              __typename
+              ... on TopicPrimary{url}
+              ... on TopicSecondary{url}
+              ... on TopicTertiary{url}
+            }
+          }
         }
         ... on Document{
           title
